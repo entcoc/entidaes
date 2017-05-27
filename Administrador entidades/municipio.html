@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Municipios</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/script.js"></script>
 	<script>
 		function enviar(){
 			var form=$('form').eq(0).serialize();
@@ -17,12 +18,23 @@
 				$('[type=text]').val("");
 			});
 		}
+		function codif(){
+			var val=decode_utf8($('[name=mun]').val());
+			$('[name=mun]').val(val);
+		}
+		$(document).ready(function(){
+			var form=$('form');
+			$.get("php/query.php",{q:'select * from departamento where ?',v:'1'},function(d){
+				console.log(d);
+			});
+		});
 	</script>
 </head>
 <body>
 	<form action="" method="get" onsubmit="return false;">
+		<select name="dep" id=""></select>
 		<input type="text" name="mun" plaxeholder="Nombre del municipio"/>
-		<input onclick="enviar()" type="submit"/>
+		<input onchange="codif()" onclick="enviar()" type="submit"/>
 	</form>
 	<div></div>
 </body>
