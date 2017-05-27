@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-    <title>Administrador de entidades</title>
-    <script src="./js/script.js"></script>
-    <link rel="stylesheet" href="./css/style.css" />
+	<title>Administrador de entidades</title>
+	<script src="./js/script.js"></script>
+	<link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
 	<form>
@@ -22,14 +22,24 @@
 			<option value=-1>Orden</option>
 		</select>
 		<select name="min_ent" id="min_ent">
-			<option value=-1>Ministerio</option>
+			<option value=0>Ministerio</option>
 		</select>
 		<input type="text" name="sig_ent" id="sig_ent" placeholder="Sigla Entidad"/>
 		<input type="text" name="tel1_ent" id="tel1_ent" placeholder="Telefono 1"/>
 		<input type="text" name="tel2_ent" id="tel2_ent" placeholder="Telefono 2"/>
 		<input type="text" name="tel3_ent" id="tel3_ent" placeholder="Telefono 3"/>
 		<input type="text" name="fax_ent" id="fax_ent" placeholder="Fax"/>
-	  <input type="text" name="" id="web_ent" placeholder="Web"/>
+		<input type="text" name="web_ent" id="web_ent" placeholder="Web"/>
+		<input type="text" name="dir_ent" id="dir_ent" placeholder="Dirección"/>
+		<select name="dep_ent" id="dep_ent">
+			<option value="-1">Departamento</option>
+		</select>
+		<select name="mun_ent" id="mun_ent">
+			<option value="-1">Municipio</option>
+		</select>
+		<input type="text" name="rep_ent" placeholder="Representante legal"/>
+		<textarea name="des_ent" id="des_ent" cols="30" rows="10" placeholder="Descripción Entidad"></textarea>
+		<input type="text" name="img_ent"/>
 	</form>
 </body>
 </html>
