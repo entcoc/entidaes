@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Municipios</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function enviar(){
+			var form=$('form').eq(0).serialize();
+			$.get("php/mun.php",form,function(d){
+				if(d==1){
+					alert("insercion exitosa");
+				}
+				else{
+					alert("Se ha ocacionado un error");
+				}console.log(d);
+				$('[type=text]').val("");
+			});
+		}
+	</script>
+</head>
+<body>
+	<form action="" method="get" onsubmit="return false;">
+		<input type="text" name="mun" plaxeholder="Nombre del municipio"/>
+		<input onclick="enviar()" type="submit"/>
+	</form>
+	<div></div>
+</body>
+</html>
