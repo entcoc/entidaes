@@ -8,34 +8,73 @@
 	<script>
 		function enviar(){
 			var form=$('form').eq(0).serialize();
-			$.get("php/mun.php",form,function(d){
-				if(d==1){
-					alert("insercion exitosa");
-				}
-				else{
-					alert("Se ha ocacionado un error");
-				}console.log(d);
-				$('[type=text]').val("");
-			});
+			if($('[name=dep]').val()>0){
+				$.get("php/mun.php",form,function(d){
+					if(d==1){
+						alert("inserción exitosa");
+					}
+					else{
+						alert("Se ha ocacionado un error");
+					}console.log(d);
+					$('[type=text]').val("");
+					$('[type=hidden]').val("");
+					$('div').html("");
+				});
+			}
+			else
+				alert("Por favor asigne el departamento");
 		}
-		function codif(){
-			var val=decode_utf8($('[name=mun]').val());
-			$('[name=mun]').val(val);
+		function addMun(){
+			var muns=$('[name=mun]').val();
+			var mun=$('[name=munE]').val();
+			if(mun!=""){
+				if(muns!="")
+					muns+=','+mun;
+				else
+					muns=mun;
+
+				$('[name=mun]').val(muns);
+				$('[name=munE]').val('');
+				if(mun.indexOf(',')>=0)
+				{
+					muns=mun.split(',');
+					for(var i=0;i<muns.length;i++){
+						$('div').append('<p>'+muns[i]+'</p>');
+					}
+				}else
+					$('div').append('<p>'+mun+'</p>');
+			}
 		}
 		$(document).ready(function(){
 			var form=$('form');
-			$.get("php/query.php",{q:'select * from departamento where ?',v:'1'},function(d){
-				console.log(d);
+			$.get("php/query.php",{q:'select * from departamento where ? order by nom_dep',v:'1'},function(d){
+				d=JSON.parse(d);
+				var dep=$('[name=dep]');
+				for(var i=0;i<d.length;i++){
+					dep.append('<option value='+d[i].id_dep+'>'+d[i].nom_dep+'</option>');
+				}
+			});
+			$("[name=dep]").change(function(e){
+				var dep=$('[name=dep] option:selected').text();
+				$('[type=submit]').val("Enviar municipios de  "+dep);
 			});
 		});
 	</script>
 </head>
 <body>
 	<form action="" method="get" onsubmit="return false;">
-		<select name="dep" id=""></select>
-		<input type="text" name="mun" plaxeholder="Nombre del municipio"/>
-		<input onchange="codif()" onclick="enviar()" type="submit"/>
+		<select name="dep" id="">
+			<option value="-1">Departamento sin asignar</option>
+		</select>
+		<input type="text" name="munE" placeholder="Ingresar municipio/s"/>
+		<input type="hidden" name="mun" value="">
+		<button onclick="addMun()">Añadir municipio/s</button>
+		<input onclick="enviar()" type="submit" value="Enviar municipios de: Sin asignar" />
+		<h1>Instrucciones</h1>
+		<p style="width:600px;" text-align="center">Se puede ingresar municipio a municipio o separados por ',' pero teniendo cuidado que pertenezcan al mismo departamento.</p>
+		<p style="width:600px;" text-align="center">Después de ingresado el o los municipios oprimir en añadir municipio/s y para enviar los valores oprimir enviar.</p>
+		<div>
+		</div>
 	</form>
-	<div></div>
 </body>
 </html>
