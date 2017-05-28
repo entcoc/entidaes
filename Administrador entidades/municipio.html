@@ -51,7 +51,11 @@
 				d=JSON.parse(d);
 				var dep=$('[name=dep]');
 				for(var i=0;i<d.length;i++){
-					dep.append('<option value='+d[i].id_dep+'>'+d[i].nom_dep+'</option>');
+					if(d[i].id_dep>0)
+						dep.append('<option value='+d[i].id_dep+'>'+d[i].nom_dep+'</option>');
+					else
+						dep.prepend('<option value='+d[i].id_dep+'>'+d[i].nom_dep+'</option>');
+
 				}
 			});
 			$("[name=dep]").change(function(e){
