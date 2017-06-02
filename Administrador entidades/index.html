@@ -24,9 +24,9 @@
 			simple('departamento','dep_ent','dep');
 			municipio();
 			$('#dep_ent').change(function(){
-				$('#dep_ent option').css('display','none');
+				$('#mun_ent option').css('display','none');
 				var dep=$('#dep_ent option:selected').val();
-				$('#mun_ent option[data-dep='+dep']').attr('style','');
+				$('#mun_ent option[data-dep='+dep+']').attr('style','');
 			});
 		});
 	</script>
@@ -34,44 +34,44 @@
 <body>
 	<form>
 		<fieldset>
-		<input type="text" name="nom_ent" id="nom_ent" placeholder="Nombre Entidad"/>
-		<select name="ram_ent" id="ram_ent">
-		</select>
-		<select name="car_ent" id="car_ent">
-		</select>
-		<select name="niv_ent" id="niv_ent">
-		</select>
-		<select name="ord_ent" id="ord_ent">
-		</select>
-		<select name="subord_ent" id="subord_ent">
-		</select>
-		<select name="tdoc_ent" id="tdoc_ent">
-			<option value="-1">Tipo doc. sin asignar</option>
-			<option value="1">Código DANE</option>
-			<option value="2">NIT</option>
-		</select>
-		<input type="text" name="doc_ent" id="doc_ent" placeholder="Documento">
-		<select name="min_ent" id="min_ent">
-			<option value=0>Ministerio</option>
-		</select>
-		<input type="text" name="sig_ent" id="sig_ent" placeholder="Sigla Entidad"/>
-		<input type="text" name="tel1_ent" id="tel1_ent" placeholder="Telefono 1"/>
-		<input type="text" name="tel2_ent" id="tel2_ent" placeholder="Telefono 2"/>
-		<input type="text" name="tel3_ent" id="tel3_ent" placeholder="Telefono 3"/>
-		<input type="text" name="fax_ent" id="fax_ent" placeholder="Fax"/>
-		<input type="text" name="web_ent" id="web_ent" placeholder="Web"/>
+			<input type="text" name="nom_ent" id="nom_ent" placeholder="Nombre Entidad"/>
+			<select name="ram_ent" id="ram_ent">
+			</select>
+			<select name="car_ent" id="car_ent">
+			</select>
+			<select name="niv_ent" id="niv_ent">
+			</select>
+			<select name="ord_ent" id="ord_ent">
+			</select>
+			<select name="subord_ent" id="subord_ent">
+			</select>
+			<select name="tdoc_ent" id="tdoc_ent">
+				<option value="-1">Tipo doc. sin asignar</option>
+				<option value="1">Código DANE</option>
+				<option value="2">NIT</option>
+			</select>
+			<input type="text" name="doc_ent" id="doc_ent" placeholder="Documento">
+			<select name="min_ent" id="min_ent">
+				<option value=0>Ministerio</option>
+			</select>
+			<input type="text" name="sig_ent" id="sig_ent" placeholder="Sigla Entidad"/>
+			<input type="text" name="tel1_ent" id="tel1_ent" placeholder="Telefono 1"/>
+			<input type="text" name="tel2_ent" id="tel2_ent" placeholder="Telefono 2"/>
+			<input type="text" name="tel3_ent" id="tel3_ent" placeholder="Telefono 3"/>
+			<input type="text" name="fax_ent" id="fax_ent" placeholder="Fax"/>
+			<input type="text" name="web_ent" id="web_ent" placeholder="Web"/>
 		</fieldset>
 		<fieldset>
-		<input type="text" name="dir_ent" id="dir_ent" placeholder="Dirección"/>
-		<select name="dep_ent" id="dep_ent">
-		</select>
-		<select name="mun_ent" id="mun_ent">
-		</select>
-		<input type="text" name="rep_ent" placeholder="Representante legal"/>
-		<textarea name="des_ent" id="des_ent" cols="30" rows="10" placeholder="Descripción Entidad"></textarea>
-		<input type="text" name="img_ent" placeholder="URL de la imágen"/>
-		<input type="text" name="lat_ent" id="lat_ent">
-		<input type="text" name="lng_ent" id="lng_ent">
+			<input type="text" name="dir_ent" id="dir_ent" placeholder="Dirección"/>
+			<select name="dep_ent" id="dep_ent">
+			</select>
+			<select name="mun_ent" id="mun_ent">
+			</select>
+			<input type="text" name="rep_ent" placeholder="Representante legal"/>
+			<textarea name="des_ent" id="des_ent" cols="30" rows="10" placeholder="Descripción Entidad"></textarea>
+			<input type="text" name="img_ent" placeholder="URL de la imágen"/>
+			<input type="text" name="lat_ent" id="lat_ent">
+			<input type="text" name="lng_ent" id="lng_ent">
 		</fieldset>
 	</form>
 </body>

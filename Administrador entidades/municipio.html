@@ -52,9 +52,9 @@
 				var dep=$('[name=dep]');
 				for(var i=0;i<d.length;i++){
 					if(d[i].id_dep>0)
-						dep.append('<option value='+d[i].id_dep+'>'+d[i].nom_dep+'</option>');
+						dep.append('<option style="display:none;" value='+d[i].id_dep+'>'+d[i].nom_dep+'</option>');
 					else
-						dep.prepend('<option value='+d[i].id_dep+' selected>'+d[i].nom_dep+'</option>');
+						dep.prepend('<option style="display:none;" value='+d[i].id_dep+' selected>'+d[i].nom_dep+'</option>');
 
 				}
 			});

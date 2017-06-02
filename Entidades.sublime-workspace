@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"dep",
+				"dep_ent"
+			],
+			[
+				"id",
+				"id_mun"
+			],
+			[
+				"nom",
+				"nom_mun"
+			],
+			[
 				"add",
 				"addSearch"
 			],
@@ -38,10 +50,6 @@
 			[
 				"des",
 				"desc_ing"
-			],
-			[
-				"id",
-				"id_us"
 			],
 			[
 				"inse",
@@ -367,16 +375,7 @@
 			"file": "Administrador entidades/index.html",
 			"settings":
 			{
-				"buffer_size": 2025,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Administrador entidades/municipio.html",
-			"settings":
-			{
-				"buffer_size": 2608,
+				"buffer_size": 2700,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -385,8 +384,16 @@
 			"file": "Administrador entidades/js/script.js",
 			"settings":
 			{
-				"buffer_size": 624,
+				"buffer_size": 1227,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -438,6 +445,7 @@
 	],
 	"file_history":
 	[
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/municipio.html",
 		"/C/Users/jim_a/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
 		"/C/Users/jim_a/Desktop/Recetario/App/principal.html",
 		"/C/Users/jim_a/Desktop/Recetario/servidor/Usuarios.php",
@@ -521,6 +529,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"});\n",
 			"}\n",
 			"<select name=\"subord_ent\" id=\"ord_ent\">\n\t\t</select>",
 			"<option value=\"-1\">",
@@ -673,15 +682,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2025,
+						"buffer_size": 2700,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								402,
-								402
+								681,
+								681
 							]
 						],
 						"settings":
@@ -690,7 +699,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 171.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -698,28 +707,27 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Administrador entidades/municipio.html",
+					"file": "Administrador entidades/js/script.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2608,
+						"buffer_size": 1227,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1537,
-								1255
+								856,
+								856
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 741.0,
+						"translation.y": 114.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -727,20 +735,24 @@
 				},
 				{
 					"buffer": 2,
-					"file": "Administrador entidades/js/script.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 624,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
+							[
+								0,
+								0
+							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
