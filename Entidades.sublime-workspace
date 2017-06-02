@@ -1,0 +1,837 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"add",
+				"addSearch"
+			],
+			[
+				"rece",
+				"receta"
+			],
+			[
+				"adds",
+				"addSearch"
+			],
+			[
+				"ti",
+				"tit_rec"
+			],
+			[
+				"remo",
+				"remove"
+			],
+			[
+				"cat",
+				"cat_rec"
+			],
+			[
+				"get",
+				"getCat"
+			],
+			[
+				"ca",
+				"catS"
+			],
+			[
+				"des",
+				"desc_ing"
+			],
+			[
+				"id",
+				"id_us"
+			],
+			[
+				"inse",
+				"insertarIngredientes"
+			],
+			[
+				"exi",
+				"exito"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"erro",
+				"errores_de_la_verga"
+			],
+			[
+				"tit",
+				"titulo"
+			],
+			[
+				"val",
+				"valForm"
+			],
+			[
+				"in",
+				"Insertar"
+			],
+			[
+				"recetas",
+				"recetasRelevantes"
+			],
+			[
+				"re",
+				"recetasRelevantes"
+			],
+			[
+				"ind",
+				"indexOf"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"form",
+				"formError"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"set",
+				"setCookie"
+			],
+			[
+				"exe",
+				"execute"
+			],
+			[
+				"pas",
+				"pass_us"
+			],
+			[
+				"pre",
+				"prepare"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"con",
+				"conoceVideos"
+			],
+			[
+				"flex-",
+				"flex-wrap"
+			],
+			[
+				"fle",
+				"flex-direction"
+			],
+			[
+				"par",
+				"partes"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"widt",
+				"width"
+			],
+			[
+				"e",
+				"eq"
+			],
+			[
+				"chil",
+				"childs"
+			],
+			[
+				"fl",
+				"flecha"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"l",
+				"left"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"ho",
+				"hola3"
+			],
+			[
+				"hola",
+				"hola2"
+			],
+			[
+				"nod",
+				"nodaux"
+			],
+			[
+				"nodo",
+				"nodoaux"
+			],
+			[
+				"inser",
+				"InsertarOrdenadoHeuristica"
+			],
+			[
+				"ce",
+				"cerrada"
+			],
+			[
+				"C",
+				"Costo"
+			],
+			[
+				"ins",
+				"InsertarOrdenadoHeuristica"
+			],
+			[
+				"cola",
+				"Cola"
+			],
+			[
+				"n",
+				"N"
+			],
+			[
+				"pr",
+				"Profundidad"
+			],
+			[
+				"li",
+				"listview"
+			],
+			[
+				"tar",
+				"target"
+			],
+			[
+				"data",
+				"data-role"
+			],
+			[
+				"pagecon",
+				"pagecontainer"
+			],
+			[
+				"che",
+				"check"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"ui-bt",
+				"ui-btn-inline"
+			],
+			[
+				"bu",
+				"busqueda"
+			],
+			[
+				"bus",
+				"busRecetas"
+			],
+			[
+				"margin-bo",
+				"margin-bottom"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ingre",
+				"ingredientes"
+			],
+			[
+				"Crear",
+				"crearReceta"
+			],
+			[
+				"wri",
+				"writeAllMemory"
+			],
+			[
+				"uin",
+				"uint8_t"
+			],
+			[
+				"uint",
+				"uint32_t"
+			],
+			[
+				"tab",
+				"tabla2"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"TAB",
+				"tabla1"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"PDO",
+				"PDOException"
+			],
+			[
+				"CONE",
+				"conectar"
+			],
+			[
+				"DB",
+				"DBname"
+			],
+			[
+				"cone",
+				"Conexion"
+			],
+			[
+				"pass",
+				"Password"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Administrador entidades/index.html",
+			"settings":
+			{
+				"buffer_size": 2025,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Administrador entidades/municipio.html",
+			"settings":
+			{
+				"buffer_size": 2608,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Administrador entidades/js/script.js",
+			"settings":
+			{
+				"buffer_size": 624,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 150.0,
+		"last_filter": "Package Control: in",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/jim_a/Documents/GitHub/entidaes",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/js",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php"
+	],
+	"file_history":
+	[
+		"/C/Users/jim_a/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/jim_a/Desktop/Recetario/App/principal.html",
+		"/C/Users/jim_a/Desktop/Recetario/servidor/Usuarios.php",
+		"/C/Users/jim_a/Desktop/Recetario/servidor/query.php",
+		"/C/Users/jim_a/Desktop/Recetario/App/js/app.js",
+		"/C/Users/jim_a/Desktop/Recetario/App/index.html",
+		"/C/Users/jim_a/Desktop/Portafolio/JSON/trabajos.json",
+		"/C/Users/jim_a/Desktop/Portafolio/sim.html",
+		"/C/Users/jim_a/Desktop/Portafolio/js/info.js",
+		"/C/Users/jim_a/Desktop/Portafolio/css/styles.css",
+		"/C/Users/jim_a/Desktop/Portafolio/cd/Busquedas/js/Cola.js",
+		"/C/Users/jim_a/Desktop/Portafolio/inter.html",
+		"/C/Users/jim_a/Desktop/Portafolio/ia.html",
+		"/C/Users/jim_a/Desktop/Portafolio/games.html",
+		"/C/Users/jim_a/Desktop/Portafolio/apps.html",
+		"/C/Users/jim_a/Desktop/Portafolio/info.html",
+		"/C/Users/jim_a/Desktop/Portafolio/index.html",
+		"/C/Users/jim_a/Desktop/Portafolio/cd/Busquedas/js/BusquedasMapa.js",
+		"/C/xampp/htdocs/Administrador entidades/rama.html",
+		"/C/xampp/htdocs/Administrador entidades/orden.html",
+		"/C/xampp/htdocs/Administrador entidades/nivel.html",
+		"/C/xampp/htdocs/Administrador entidades/municipio.html",
+		"/C/xampp/htdocs/Administrador entidades/departamentos.html",
+		"/C/xampp/htdocs/Administrador entidades/caracter.html",
+		"/C/xampp/htdocs/Recetario/._Usuarios.php",
+		"/C/Users/jim_a/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/perros.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/gatos.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/index.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/perros (4).html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/js/1.js",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/gatos (4).html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/paseame.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/registro.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/8.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/9.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/blog.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/conocenos mejor.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/conocenos mejor (2).html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/conocenos mejor (3).html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/datos erroneos.html",
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/datos validos.html",
+		"/C/Users/jim_a/Desktop/Rumania A estrella/js/Cola.txt",
+		"/C/Users/jim_a/Desktop/Rumania A estrella/js/BusquedasMapa.txt",
+		"/C/xampp/htdocs/Varitas/index.html",
+		"/C/Users/jim_a/Desktop/Varitas/index.html",
+		"/C/Users/jim_a/Desktop/NO SEA SAPO/jquery/jquery-1.11.1.min.js",
+		"/C/Users/jim_a/Desktop/NO SEA SAPO/config.xml",
+		"/C/Users/jim_a/Desktop/NO SEA SAPO/index.html",
+		"/C/Users/jim_a/Desktop/NO SEA SAPO/themes/recetarioTheme.min.css",
+		"/C/Users/jim_a/Desktop/Varitas/Varitas Harry Potter.js",
+		"/C/Users/jim_a/Desktop/NO SEA SAPO/themes/recetarioTheme.css",
+		"/C/Users/jim_a/Desktop/Varitas/Varitas Harry Potter.html",
+		"/C/Users/jim_a/Desktop/ing multimedia/Proyecto semillero/NFC/main/ArduinoLibraries-master/NFC/PN532.h",
+		"/C/xampp/htdocs/Proyectos_Pruebas/DB.php",
+		"/C/xampp/htdocs/Proyectos_Pruebas/insert.php",
+		"/C/xampp/htdocs/Proyectos_Pruebas/Archivos en local/archivos.php",
+		"/C/Users/jim_a/Desktop/d3mmjwi9zSVpra9i.gif",
+		"/C/Users/jim_a/Desktop/d3mmjwi9zSVpra9i.gif.txt",
+		"/C/Users/jim_a/Desktop/Wumpus/wumpus.html",
+		"/C/Users/jim_a/Desktop/ing multimedia 8/IA/Busqueda/IAUMNG-master/js/BusquedasPuzzle.js",
+		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/index.html",
+		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/js/index.css",
+		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/js/index.js",
+		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/index2.html"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"}\n",
+			"<select name=\"subord_ent\" id=\"ord_ent\">\n\t\t</select>",
+			"<option value=\"-1\">",
+			"<option value=-1>",
+			"option",
+			"misRe",
+			"abrir",
+			"class=\"rec",
+			"\t\t\t\t",
+			"class=\"rece",
+			"crear",
+			"<a href=\"https://www.linkedin",
+			"<a",
+			"pagecon",
+			"){\n",
+			"selection",
+			"selections",
+			"multip",
+			"sel",
+			"ocur",
+			"ocu",
+			"todo",
+			".der",
+			"flec",
+			"todo",
+			"int2",
+			"proce",
+			"todo",
+			".der",
+			"todo",
+			"ico",
+			"video",
+			"ico",
+			"enun",
+			"hist",
+			"his",
+			"txt",
+			"ref",
+			"ref2",
+			"ref",
+			"ref2",
+			"ref",
+			"ref2",
+			"ref",
+			"ref{",
+			"ref",
+			"ref ",
+			"ref",
+			"txt",
+			"int",
+			"max",
+			"int",
+			"}\n",
+			"int",
+			"\t\t\t   \n",
+			">\n",
+			"\t    \t\t\n",
+			"izq",
+			"gato.jpg",
+			"icoRe",
+			"flecha",
+			"td",
+			"screen=\"\"",
+			".der",
+			"der",
+			".flecha",
+			".todo",
+			".der",
+			".flecha",
+			"7.html",
+			"6.html",
+			"3.html",
+			"2.html",
+			"1.html",
+			"5000",
+			"1000",
+			"5000",
+			"1002",
+			"izquirerda",
+			"derecha",
+			"$",
+			"top",
+			").css(\"t",
+			".css",
+			"relative",
+			"izquierda",
+			"absolute",
+			"613px",
+			"heuristica",
+			"conversion",
+			"lat",
+			"fondoB",
+			"recetaAdd",
+			"view",
+			"https://www.meals.com/ImagesRecipes/",
+			"<h4>Pie</h4>",
+			"icon",
+			"<div data-role=\"header\">",
+			"local('Cormorant Garamond Regular'), local('CormorantGaramond-Regular'), url(https://fonts.gstatic.com/s/cormorantgaramond/v3/EI2hhCO6kSfLAy-Dpd8fd0IRuCegCtpadnF3HXSowSU.woff2) format('woff2')",
+			"<div data-role=\"header\">",
+			"mouseover",
+			"));",
+			".ctext",
+			"varitam",
+			"volver",
+			"Volver",
+			"<a href=\"#\" data-role=\"button\" data-rel=\"back\"><i class=\"fa fa-undo fa-2x\"></i> Volver</a>",
+			"abrirRecetaB",
+			"abrirReceta",
+			"ui-btn ui-btn-icon-right ui-icon-carat-r",
+			"<li",
+			"<li>",
+			"li",
+			"font-family",
+			"Opción 2",
+			"<div data-role=\"page\" id=\"Contacto\">\n  <div data-role=\"header\">\n    <h1>Contacto</h1>\n    <div data-role=\"navbar\">\n    \t<ul data-type=\"horizontal\">\n        \t<li><a href=\"#recetasRelevantes\" data-transition=\"flow\">Relevantes</a></li>\n        \t<li><a href=\"#recetasDesayuno\" data-transition=\"flow\">Desayuno</a></li>\n        \t<li><a href=\"#recetasAlmuerzo\" data-transition=\"flow\">Almuerzo</a></li>\n        \t<li><a href=\"#recetasCena\" data-transition=\"flow\">Cena</a></li>\n          <li><a href=\"#Contacto\" data-transition=\"flow\" style=\"background-color: #7f585a; border-color: #453031; color: #ffffff; text-shadow: 0 1px 0 #444444;\">Contacto</a></li>\n        </ul>\n    </div>\n  </div>\n  <div data-role=\"content\">\n  \t<form action=\"#\">\n  \t  <div data-role=\"fieldcontain\">\n  \t    <input type=\"text\" name=\"textinput\" id=\"textinput\" value=\"\"  placeholder=\"Nombre\"/>\n      </div>\n  \t  <div data-role=\"fieldcontain\">\n  \t    <input type=\"email\" name=\"email\" id=\"email\" value=\"\" placeholder=\"Correo Electrónico\"/>\n      </div>\n  \t  <div data-role=\"fieldcontain\">\n  \t    <label for=\"textarea\">Mensaje:</label>\n  \t    <textarea cols=\"40\" rows=\"8\" name=\"textarea\" id=\"textarea\"></textarea>\n      </div>\n  \t  <input type=\"submit\" value=\"Enviar Correo\" />\n    </form>\n  </div>\n  <div data-position=\"fixed\" data-role=\"footer\">\n    <h4>Pie</h4>\n    <a href=\"#misRecetas\" class=\"ui-btn ui-btn-inline ui-corner-all ui-shadow\">Abrir mis recetas</a>\n  </div>\n</div>",
+			"sendCommandCheckAck"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<a target=\"_blank\" href=\"https://www.linkedin",
+			"<a target=\"_blank\"",
+			"images(2).jpg",
+			"screen",
+			"blog.html",
+			"conocenos mejor.html",
+			"perros.html",
+			"gatos.html",
+			"index.html"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Administrador entidades/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2025,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								402
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Administrador entidades/municipio.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2608,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1537,
+								1255
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 741.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Administrador entidades/js/script.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Entidades.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 202.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
