@@ -7,7 +7,7 @@
 	<script>
 		function enviar(){
 			var form=$('form').eq(0).serialize();
-			$.get("php/dep.php",form,function(d){
+			$.get("php/car.php",form,function(d){
 				if(d==1){
 					alert("insercion exitosa");
 				}
