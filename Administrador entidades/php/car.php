@@ -13,7 +13,7 @@ for($i=0;$i<count($car);$i++){
 	array_push($inserts, htmlentities($car[$i]));
 }
 $s=$db->prepare($query);
-if($s->execute(array(htmlentities($car)))){
+if($s->execute($inserts)){
 	echo 1;
 }
 else{
