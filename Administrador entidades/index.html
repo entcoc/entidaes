@@ -22,6 +22,7 @@
 			simple('orden','ord_ent','ord');
 			simple('suborden','subord_ent','subord');
 			simple('departamento','dep_ent','dep');
+			simple('entidad','par_ent','ent');
 			municipio();
 			$('#dep_ent').change(function(){
 				$('#mun_ent option').css('display','none');
@@ -29,10 +30,41 @@
 				$('#mun_ent option[data-dep='+dep+']').attr('style','');
 			});
 		});
+		function enviar(){
+			var form=$('form').eq(0).serializeArray();
+			var obj={};
+			form.forEach(function(item,i){
+				obj[item.name]=item.value;
+			});
+			console.log(obj);
+			$.post( "php/entidad.php", obj, function( d ) {
+				console.log(d);
+				if(d){
+
+					$('#par_ent').append('<option value='+d+'>'+$('#nom_ent').val()+'</option>');
+					$('[type=text]').val("");
+					$('#nom_ent').focus();
+					alert("insercion exitosa");
+				}
+				else{
+					alert("Se ha ocacionado un error");
+				}
+			});
+			/*$.get("php/entidad.php",form,function(d){
+				console.log(d);
+				if(d==1){
+					alert("insercion exitosa");
+				}
+				else{
+					alert("Se ha ocacionado un error");
+				}
+				$('[type=text]').val("");
+			});*/
+		}
 	</script>
 </head>
 <body>
-	<form>
+	<form method="post" onsubmit="return false;">
 		<fieldset>
 			<input type="text" name="nom_ent" id="nom_ent" placeholder="Nombre Entidad"/>
 			<select name="ram_ent" id="ram_ent">
@@ -51,8 +83,8 @@
 				<option value="2">NIT</option>
 			</select>
 			<input type="text" name="doc_ent" id="doc_ent" placeholder="Documento">
-			<select name="min_ent" id="min_ent">
-				<option value=0>Ministerio</option>
+			<select name="par_ent" id="par_ent">
+				<option value=0>Padre</option>
 			</select>
 			<input type="text" name="sig_ent" id="sig_ent" placeholder="Sigla Entidad"/>
 			<input type="text" name="tel1_ent" id="tel1_ent" placeholder="Telefono 1"/>
@@ -73,6 +105,7 @@
 			<input type="text" name="lat_ent" id="lat_ent" placeholder="Latitud">
 			<input type="text" name="lng_ent" id="lng_ent" placeholder="Longitud">
 		</fieldset>
+		<input type="submit" onclick="enviar()" value="Enviar">
 	</form>
 </body>
 </html>
