@@ -24,7 +24,8 @@ var tree;
 var root;
 //Ancho y alto del svg a dibujar
 var w=0,h=0;
-
+//Duration de las animaciones
+var duration = 1000;
 /**
  * Determina si existe un objeto en un arreglo.
  * @param  {obj} obj Objeto a buscar.
@@ -138,6 +139,7 @@ function armarArbol(){
     var zoomListener = d3.zoom().scaleExtent([0.1, 3]).on("zoom", zoomanddrag);
     window.milist=zoomListener;
     //Se crea el svg para empezar a dibujar, además se le agrega el listener del evento de zoom y drag
+    d3.select('svg').remove();
 	var svg=d3.select('#treeShow')
 				.append('svg')
 				.attr('width',w)
@@ -151,14 +153,19 @@ function armarArbol(){
      * @param  {Node} source El nodo a centrar.
      */
     function centrarEntidad(n) {
-    	var transform=d3.zoomTransform(svg);
+    	var transform=d3.zoomTransform(g.node());
     	var scale=transform.k;
-        var x = -n.x0-500;
-        var y = -n.y0;
-        x = x * scale+w/2;
-        y = y * scale+h/2;
+        var x = -n.y0;
+        var y = -n.x0;
+        x = x*scale +w/2;
+        y = y*scale +h/2;
         transform=transform.translate(x,y);
-        svg.call(zoomListener.transform,transform);
+        d3.select('g').transition()
+          .duration(duration)
+          .attr('transform',transform)
+          .on('end',function(){
+            svg.call(zoomListener.transform,transform);
+          });
     }
 
     /**
@@ -192,8 +199,9 @@ function armarArbol(){
      */
     function toggleChildren(d) {
         if (d.children) {
-            d._children = d.children;
-            d.children = null;
+            /*d._children = d.children;
+            d.children = null;*/
+            collapse(d);
         } else if (d._children) {
             d.children = d._children;
             d._children = null;
@@ -209,7 +217,7 @@ function armarArbol(){
         if (d3.event.defaultPrevented) return; // click suppressed
         d = toggleChildren(d);
         pintarNodo(d);
-        centrarEntidad(d);
+        //centrarEntidad(d);
     }
 
     function pintarNodo(nodo){
@@ -239,7 +247,7 @@ function armarArbol(){
 	     * @param  {int} level El número del nivel
 	     * @param  {Node} n     El nodo a verificar
 	     */
-        var childCount = function(level, n) {
+      var childCount = function(level, n) {
 
             if (n.children && n.children.length > 0) {
                 if (levelWidth.length <= level + 1) levelWidth.push(0);
@@ -259,100 +267,167 @@ function armarArbol(){
           .y(function(d) { return d.x; });
 
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 25; // 25 pixels por linea  
+        var newHeight = d3.max(levelWidth) * 75; // 25 pixels por linea  
         tree = tree.size([newHeight,w]);
 	    //Llamado de visit
 	    visit(root, function(d) {
-	        maxLabelLength = Math.max(d.data.name.length, maxLabelLength);
+        var name=$('<p>').html(d.data.name).text();
+        if(name.length>40)
+          name=name.substr(0,40)+"...";
+	      maxLabelLength = Math.max(name.length, maxLabelLength);
 
 	    }, function(d) {
 	        return d.children && d.children.length > 0 ? d.children : null;
 	    });
 
 	    var newRoot=tree(root),
-	    entidades=newRoot.descendants(),
-	    links=newRoot.links();
+	    entidades=newRoot.descendants();
 
 	    entidades.forEach(function(d){
-	    	/*OJO posible d.x*/d.y=(d.depth*(maxLabelLength * 10));
+	    	/*OJO posible d.x*/d.y=(d.depth*(maxLabelLength*12));
 	    });
-	    
-		var entidad = g.selectAll("g.entidad")
-    				.data(entidades,function(d){
-    					return d.id;
-    				});
-    	var entidadEnter=entidad.enter().append("g")
-      				.attr("class", function(d) { return "entidad prof" +d.depth; })
-      				.attr("transform", function(d) { return "translate(" + nodo.y0 + "," + nodo.x0 + ")"; })
-      				.on('click',click);
 
-  		entidadEnter.append("circle")
-      		   .attr("r", 0);
 
-  		entidadEnter.append("text")
-      		   .attr("dy", ".35em")
-      		   .attr("x", function(d) { return d.children || d._children ? -8 : 8; })
-      		   .style("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      		   .text(function(d) { return $('<p>').html(d.data.name).text(); })
-      		   .style("fill-opacity", 0);
+      var transit=d3.transition()
+        .duration(duration);
 
-      	entidad.select('text')
-      		   .attr("x", function(d) { return d.children || d._children ? -8 : 8; })
-      		   .style("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      		   .text(function(d) { return $('<p>').html(d.data.name).text(); });
-
-      	entidad.select('circle')
-      		   .attr('r',8);
-
-      	var entidadActualizar=entidad.transition()
-      				.duration(500)
-      				.attr('transform',function(d){
-      					return "translate("+d.y+","+d.x+")";
-      				});
-      	entidadActualizar.select("text")
-      					 .style('fill-opacity',1);
-
-      	var entidadExit=entidad.exit().transition()
-      					.duration(500)
-      					.attr("transform",function(d){
-      						return "translate("+nodo.y+","+nodo.x+")";
-      					})
-      					.remove();
-
-      	entidadExit.select('circle')
-      			   .attr("r",0);
-
-      	entidadExit.select("text")
-      					 .style('fill-opacity',0); 
-
-    	var ruta = g.selectAll("path.ruta")
-    				.data(links,function(d){
-    					return d.target.id;
-    				});
-
-    	ruta.enter().insert("path","g")
-    				.attr('class',"ruta")
-    				.attr("d", d3.linkHorizontal()
-          			.x(function(d) { return nodo.x0; })
-          			.y(function(d) { return nodo.y0; }));
-
-        ruta.transition()
-        	.duration(500)
-        	.attr("d",diagonal);
-
-        ruta.exit().transition()
-        	.duration(500)
-        	.attr("d", d3.linkHorizontal()
-          	.x(function(d) { return nodo.x; })
-          	.y(function(d) { return nodo.y; }))
-          	.remove();
-      	entidades.forEach(function(d) {
-            d.x0 = d.x;
-            d.y0 = d.y;
+      //Actualizar lista de entidades a mostrar
+      var entidad=g.selectAll("g.entidad")
+        .data(entidades,function(d){
+          return d.id;
         });
+
+      //Agragar entidades expandidads
+      var expandidas=entidad.enter().append("g")
+        .attr("class",function(d){
+          return "entidad prof"+d.depth;
+        })
+        .attr("transform",function(d){
+          return "translate("+nodo.y0+","+nodo.x0+")";
+        })
+        .on("click",click);
+
+      expandidas.append("text")
+        .attr("x",function(d){
+          return d.children || d._children ? -8 : 8;
+        })
+        .style("text-anchor",function(d){
+          return d.children || d._children ? "end" : "start";
+        })
+        .text(function(d){
+          var name=$('<p>').html(d.data.name).text();
+          if(name.length>40)
+            name=name.substr(0,40)+"...";
+          return name;
+        })
+        .style("fill-opacity",0)
+        .transition(transit)
+        .style("fill-opacity",1);
+
+      var circle=expandidas.append("g")
+      circle.append("circle")
+        .attr("r",0)
+        .transition(transit)
+        .attr("r",8);
+      circle.append("text")
+        .text(function(d){
+          var t="";
+          if(d._children)
+            t="+";
+          if(d.children)
+            t="-";
+          return t;
+        })
+        .attr("text-anchor","middle")
+        .attr("font-size",20)
+        .attr("dy",6)
+        .attr("fill","white")
+        .style("fill-opacity",0)
+        .transition(transit)
+        .style("fill-opacity",1);
+
+      expandidas.transition(transit)
+        .attr("transform",function(d){
+          return "translate("+d.y+","+d.x+")";
+        });
+
+      var contraidas=entidad.exit().transition(transit)
+        .attr("transform",function(d){
+          return "translate("+nodo.y+","+nodo.x+")";
+        })
+        .remove();
+
+      contraidas.select("text")
+        .style("fill-opacity",0);
+
+      contraidas.select("g text")
+        .style("fill-opacity",0);
+
+      contraidas.select("g circle")
+        .attr("r",0);
+
+      //Actualizar posición entidades
+      entidad.transition(transit)
+        .attr("transform",function(d){
+          return "translate("+d.y+","+d.x+")";
+        })
+        .selectAll(".entidad g text")
+        .text(function(d){
+          var t="";
+          if(d._children)
+            t="+";
+          if(d.children)
+            t="-";
+          return t;
+        });
+
+      var links=newRoot.links();
+      
+      //Actualizar lista de rutas entre entidades
+      var link=g.selectAll("path.ruta")
+        .data(links,function(d){
+          return d.target.id;
+        });
+
+      //Links de entidades expandidads
+      var lExpand=link.enter().insert("path","g")
+        .attr("class","ruta")
+        .attr("d",d3.linkHorizontal()
+                  .x(function(d){
+                    return nodo.y0
+                  })
+                  .y(function(d){
+                    return nodo.x0
+                  }));
+
+      lExpand.transition(transit)
+        .attr("d",diagonal);
+
+      //Links de entidades contraidas
+      var lContra=link.exit()
+        .transition(transit)
+        .attr("d",d3.linkHorizontal()
+                  .x(function(d){
+                    return nodo.y
+                  })
+                  .y(function(d){
+                    return nodo.x
+                  }))
+        .remove();
+
+      //Actualizar links de entidades no expandidas ni contraidas
+      link.transition(transit)
+        .attr("d",diagonal);
+
+      entidades.forEach(function(d) {
+          d.x0 = d.x;
+          d.y0 = d.y;
+      });
+
+      centrarEntidad(nodo);
     }
     var des=root.descendants();
-    /*toggleChildren(des[1]);
+    toggleChildren(des[1]);
     collapse(des[2]);
     toggleChildren(des[3]);
     toggleChildren(des[4]);
@@ -360,152 +435,11 @@ function armarArbol(){
     toggleChildren(des[6]);
     toggleChildren(des[7]);
     toggleChildren(des[8]);
-    toggleChildren(des[9]);*/
+    toggleChildren(des[9]);
     var t=d3.zoomIdentity;
     t.k=scale;
     svg.call(zoomListener.transform,t);
     pintarNodo(root);
-    centrarEntidad(root);
-    function actualizarEntidad(source){
-    	var maxLabelLength=0;
-    	/**
-	     * Visita todos los nodos.
-	     * @param  {Node} parent     El padre de uun nodo
-	     * @param  {function} visitFn    Función para reproducir al comienzo
-	     * @param  {function} childrenFn Función para obtener hijos de un nodo
-	     */
-	    function visit(parent, visitFn, childrenFn) {
-	        if (!parent) return;
-
-	        visitFn(parent);
-
-	        var children = childrenFn(parent);
-	        if (children) {
-	            var count = children.length;
-	            for (var i = 0; i < count; i++) {
-	                visit(children[i], visitFn, childrenFn);
-	            }
-	        }
-	    }
-	    var levelWidth = [1];
-	    /**
-	     * Determina el número máximo de hijos que se puede llegar a tener.
-	     * @param  {int} level El número del nivel
-	     * @param  {Node} n     El nodo a verificar
-	     */
-        var childCount = function(level, n) {
-
-            if (n.children && n.children.length > 0) {
-                if (levelWidth.length <= level + 1) levelWidth.push(0);
-
-                levelWidth[level + 1] += n.children.length;
-                n.children.forEach(function(d) {
-                    childCount(level + 1, d);
-                });
-            }
-        };
-
-        /**
-         * funcion que retorna un curva cubica
-         */
-        var diagonal = d3.linkHorizontal()
-          .x(function(d) { return d.y; })
-          .y(function(d) { return d.x; });
-
-        childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 25; // 25 pixels por linea  
-        tree = tree.size([w, newHeight]);
-	    //Llamado de visit
-	    visit(root, function(d) {
-	        maxLabelLength = Math.max(d.data.name.length, maxLabelLength);
-
-	    }, function(d) {
-	        return d.children && d.children.length > 0 ? d.children : null;
-	    });
-    	var duration = d3.event && d3.event.altKey ? 5000 : 500;
-    	//Computar el nuevo layout
-    	tree(root);
-    	var nodes=root.descendants();
-    	nodes.forEach(function(d) {
-            d.y = (d.depth * (maxLabelLength * 10)); //maxLabelLength * 10px
-        });
-        //Seleccionar los nodos actuales
-        var node=svg.selectAll("g.entidad");
-        var nodeEnter=node.enter().append('svg:g')
-        .attr('class',function(d){return 'entidad prof'+d.depth})
-		      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-		      .on("click", click);
-		nodeEnter.append("svg:circle")
-		      .attr("r", 1e-6);//radio 0
-		nodeEnter.append("svg:text")
-	      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
-	      .attr("dy", ".35em")
-	      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-	      .text(function(d) { return d.name; })
-	      .style("fill-opacity", 1e-6);
-	      	/**
-	      	 * Parar y continuar aquí
-	      	 */
-
-		  //Reposicionar los nodos antiguos
-		  var nodeUpdate = node.transition()
-		      .duration(duration)
-		      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
-
-		  nodeUpdate.select("circle")
-		      .attr("r", 4.5)
-		      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-		  nodeUpdate.select("text")
-		      .style("fill-opacity", 1);
-
-		  // Borrar los nodos hijos que han sido contraidos
-		  var nodeExit = node.exit().transition()
-		      .duration(duration)
-		      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-		      .remove();
-
-		  nodeExit.select("circle")
-		      .attr("r", 1e-6);
-
-		  nodeExit.select("text")
-		      .style("fill-opacity", 1e-6);
-
-		  // Actualizar rutas
-		  var link = svg.selectAll("path.ruta")
-		      .data(nodes.links(), function(d) { return d.target.id; });
-
-		  // Nuevos Links
-		  link.enter().insert("svg:path", "g")
-		      .attr("class", "ruta")
-		      .attr("d", function(d) {
-		        var o = {x: source.x0, y: source.y0};
-		        return diagonal({source: o, target: o});
-		      })
-		    .transition()
-		      .duration(duration)
-		      .attr("d", diagonal);
-
-		  // Transition links to their new position.
-		  link.transition()
-		      .duration(duration)
-		      .attr("d", diagonal);
-
-		  // Transition exiting nodes to the parent's new position.
-		  link.exit().transition()
-		      .duration(duration)
-		      .attr("d", function(d) {
-		        var o = {x: source.x, y: source.y};
-		        return diagonal({source: o, target: o});
-		      })
-		      .remove();
-
-		  // Stash the old positions for transition.
-		  nodes.forEach(function(d) {
-		    d.x0 = d.x;
-		    d.y0 = d.y;
-		  });
-    }
 }
 init();
 window.carga=0;

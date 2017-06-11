@@ -1,17 +1,44 @@
 /*Estilos css para diseño SVG*/
-.ruta{ fill:none; stroke: black; stroke-width: 0.5px; }
-.entidad{ cursor: pointer; }
-.entidad text{ font-family: 'Roboto', sans-serif; }
+.ruta{ 
+	fill:none;
+	stroke: black;
+	stroke-width: 0.5px;
+}
+.entidad{
+	cursor: pointer;
+}
+.entidad text{
+	font-family: 'Roboto', sans-serif;
+	font-size: 25px;
+}
 
 /*CODIGO CSS QUE LE DA COLOR AL CIRCULO DEPENDIENDO DE LA PROFUNDIDAD DE LA ENTIDAD*/
-.entidad.prof0 circle{ fill: #0a2342;}
-.entidad.prof1 circle{ fill: #f46197; }
-.entidad.prof2 circle{ fill: #FF8C00; }
-.entidad.prof3 circle{ fill: #2CA58D; }
-.entidad.prof4 circle{ fill: #36558F; }
-.entidad.prof5 circle{ fill: #D4E4BC; }
-.entidad.prof6 circle{ fill: #48233C; }
-.entidad.prof7 circle{ fill: #D4E4BC; }
+.entidad.prof0 circle{
+	fill: #0a2342;
+}
+.entidad.prof1 circle{
+	fill: #f46197;
+}
+.entidad.prof2 circle{
+	fill: #FF8C00;
+}
+.entidad.prof3 circle{
+	fill: #2CA58D;
+}
+.entidad.prof4 circle{
+	fill: #36558F;
+}
+.entidad.prof5 circle{
+	fill: #D4E4BC;
+}
+.entidad.prof6 circle{
+	fill: #48233C;
+}
+.entidad.prof7 circle{
+	fill: #D4E4BC;
+}
 
 /*CODIGO CSS QUE SE ENCARGA DE CAMBIAR COLOR DE CIRCULO*/
-.entidad circle:hover { fill:red; }
+.entidad circle:hover {
+	fill:red;
+}
