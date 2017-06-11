@@ -309,7 +309,7 @@ function armarArbol(){
 
       expandidas.append("text")
         .attr("x",function(d){
-          return d.children || d._children ? -8 : 8;
+          return d.children || d._children ? -15 : 15;
         })
         .style("text-anchor",function(d){
           return d.children || d._children ? "end" : "start";
@@ -328,7 +328,7 @@ function armarArbol(){
       circle.append("circle")
         .attr("r",0)
         .transition(transit)
-        .attr("r",8);
+        .attr("r",15);
       circle.append("text")
         .text(function(d){
           var t="";
