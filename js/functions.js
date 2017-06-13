@@ -70,7 +70,7 @@ function entidades(){
 	$.get("Administrador entidades/php/query.php",{q:"select count(id_ent) as total from entidad where ?",v:1},function(d){
 		d=JSON.parse(d);
 		d=parseInt(d[0].total);
-		var cuan=5;
+		var cuan=10;
 		window.limite=Math.ceil(d/cuan);
 		for(var i=0;i<d;i+=cuan){
 			entConLimite(i,cuan);
@@ -83,7 +83,7 @@ function entidades(){
  * @param  {int} cuan   Cuantas entidades se deben consultar.
  */
 function entConLimite(offset,cuan){
-	var q='select * from entidad where ? limit '+offset+","+cuan;
+	var q='select id_ent, nom_ent, par_ent, ram_ent from entidad where ? limit '+offset+","+cuan;
 	$.get("Administrador entidades/php/query.php",{q:q,v:'1'},function(d){
 		d=JSON.parse(d);
 		d.sort(function(a,b){
