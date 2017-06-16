@@ -1,31 +1,3 @@
-//Listado de ramas del poder público
-var rama=[];
-//Listado de caracter de las entidades
-var caracter=[];
-//Listado de niveles de las entidades
-var nivel=["No asignado","Centralizado","Descentralizado","No aplica"];
-//Listado de los ordenes de las entidades
-var orden=["No asignado","Nacional","Territorial","No aplica"];
-//Listado de los subordenes de las entidades
-var suborden=["No asignado","Departamental","Distrital","Municipal","Organización Territorial","No aplica"];
-//Variable auxiliar para concatenar las entidades
-var data=[];
-//Inserción del primer dato
-data.push({id:"0",name:"Estado Colombiano",collapse:false,parent:null});
-//Listado completo de entidades Públicas
-var entidad=[];
-//Listado de departamentos de Colombia
-var departamento=[];
-//Listado de municipios de Colombia
-var municipio=[];
-//Layout del árbol
-var tree;
-//Nodos del árbol
-var root;
-//Ancho y alto del svg a dibujar
-var w=0,h=0;
-//Duration de las animaciones
-var duration = 1000;
 /**
  * Determina si existe un objeto en un arreglo.
  * @param  {obj} obj Objeto a buscar.
@@ -34,9 +6,10 @@ var duration = 1000;
 Array.prototype.contains = function(obj) {
     var i = this.length;
     while (i--) {
-        if (this[i] === obj) {
-            return true;
-        }
+      var comp=this[i]; 
+      if (comp.id == obj.id) {
+          return true;
+      }
     }
     return false;
 }
@@ -45,59 +18,30 @@ Array.prototype.contains = function(obj) {
  * Inicializa variables trayendo los datos de la base de datos.
  */
 function init(){
-	ramas();
 	entidades();
+  ramas();
+  armarArbol();
 }
-
 /**
  * Trae todas las ramas de las entidades públicas y las agrega en la variable data.
  */
 function ramas(){
-	$.get("Administrador entidades/php/query.php",{q:"select * from rama where ?",v:1},function(d){
-		d=JSON.parse(d);
-		rama=rama.concat(d);
-		for (var i = d.length - 1; i >= 0; i--) {
-			if(d[i].id_ram>0)
-			addData({id:"r"+d[i].id_ram,name:d[i].nom_ram,collapse:false,parent:0});
-		}
-	});
+	for (var i = rama.length - 1; i >= 0; i--) {
+		if(rama[i].id_ram>0)
+		  addData({id:"r"+rama[i].id_ram,name:rama[i].nom_ram,collapse:false,parent:0});
+	}
 }
 
 /**
  * Trae todas las entidades públicas y las agrega en la variable data.
  */
 function entidades(){
-	$.get("Administrador entidades/php/query.php",{q:"select count(id_ent) as total from entidad where ?",v:1},function(d){
-		d=JSON.parse(d);
-		d=parseInt(d[0].total);
-		var cuan=10;
-		window.limite=Math.ceil(d/cuan);
-		for(var i=0;i<d;i+=cuan){
-			entConLimite(i,cuan);
-		}
-	});
-}
-/**
- * Trae las entidades por paquetes.
- * @param  {int} offset Desde que entidad se debeconsultar.
- * @param  {int} cuan   Cuantas entidades se deben consultar.
- */
-function entConLimite(offset,cuan){
-	var q='select id_ent, nom_ent, par_ent, ram_ent from entidad where ? limit '+offset+","+cuan;
-	$.get("Administrador entidades/php/query.php",{q:q,v:'1'},function(d){
-		d=JSON.parse(d);
-		d.sort(function(a,b){
-			return (a.nom_ent.toLowerCase()<=b.nom_ent.toLowerCase())?-1:1;
-		});
-		entidad=entidad.concat(d);
-		for (var i = d.length - 1; i >= 0; i--) {
-			if(parseInt(d[i].par_ent))
-				addData({id:"e"+d[i].id_ent,name:d[i].nom_ent,collapse:false,parent:"e"+d[i].par_ent});
-			else
-				addData({id:"e"+d[i].id_ent,name:d[i].nom_ent,collapse:false,parent:"r"+d[i].ram_ent});
-		}
-		$(document).trigger("carga");
-	});
+	for (var i = entidad.length - 1; i >= 0; i--) {
+    if(parseInt(entidad[i].par_ent))
+      addData({id:"e"+entidad[i].id_ent,name:entidad[i].nom_ent,collapse:false,parent:"e"+entidad[i].par_ent});
+    else
+      addData({id:"e"+entidad[i].id_ent,name:entidad[i].nom_ent,collapse:false,parent:"r"+entidad[i].ram_ent});
+  }
 }
 
 /**
@@ -132,6 +76,7 @@ function armarArbol(){
 	
 	//Funcion que detecta el scroll del mouse y el movimiento del svg, para que este sea movido y acercado o alejado según sea el caso.
 	function zoomanddrag() {
+        scale=d3.event.transform.k;
         g.attr("transform", d3.event.transform);
     }
 
@@ -154,7 +99,6 @@ function armarArbol(){
      */
     function centrarEntidad(n) {
     	var transform=d3.zoomTransform(g.node());
-    	var scale=transform.k;
         var x = -n.y0;
         var y = -n.x0;
         x = x*scale +w/2;
@@ -267,7 +211,7 @@ function armarArbol(){
           .y(function(d) { return d.x; });
 
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 75; // 25 pixels por linea  
+        var newHeight = d3.max(levelWidth) * 75; // 75 pixels por linea  
         tree = tree.size([newHeight,w]);
 	    //Llamado de visit
 	    visit(root, function(d) {
@@ -284,7 +228,7 @@ function armarArbol(){
 	    entidades=newRoot.descendants();
 
 	    entidades.forEach(function(d){
-	    	/*OJO posible d.x*/d.y=(d.depth*(maxLabelLength*12));
+	    	/*OJO posible d.x*/d.y=(d.depth*(maxLabelLength*15));
 	    });
 
 
@@ -441,7 +385,6 @@ function armarArbol(){
     svg.call(zoomListener.transform,t);
     pintarNodo(root);
 }
-init();
 window.carga=0;
 $(document).ready(function(){
 	$(document).on("cargaCompleta",armarArbol);
@@ -460,3 +403,4 @@ $(window).resize(function(){
 	tree.size([h,w]);
 	armarArbol();
 });
+init();

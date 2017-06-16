@@ -8,7 +8,7 @@ function decode_utf8(s) {
 	return decodeURIComponent(escape(s));
 }
 function simple(table,id,suf){
-	var q='select * from '+table+' where ?';
+	var q='select id_'+suf+', nom_'+suf+' from '+table+' where ?';
 	$.get("php/query.php",{q:q,v:'1'},function(d){
 		d=JSON.parse(d);
 		d.sort(function(a,b){
