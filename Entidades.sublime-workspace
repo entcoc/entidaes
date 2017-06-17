@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"fil",
+				"filtros"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"fle",
+				"flex-wrap"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"ram",
+				"ramIDs"
+			],
+			[
 				"entid",
 				"entidades"
 			],
@@ -104,10 +136,6 @@
 				"ramas"
 			],
 			[
-				"max",
-				"maxLabelLength"
-			],
-			[
 				"ac",
 				"actualizarEntidad"
 			],
@@ -138,10 +166,6 @@
 			[
 				"sto",
 				"stroke"
-			],
-			[
-				"fil",
-				"fill"
 			],
 			[
 				"id",
@@ -210,10 +234,6 @@
 			[
 				"tit",
 				"titulo"
-			],
-			[
-				"val",
-				"valForm"
 			],
 			[
 				"in",
@@ -290,10 +310,6 @@
 			[
 				"flex-",
 				"flex-wrap"
-			],
-			[
-				"fle",
-				"flex-direction"
 			],
 			[
 				"par",
@@ -498,24 +514,25 @@
 			[
 				"DB",
 				"DBname"
-			],
-			[
-				"cone",
-				"Conexion"
-			],
-			[
-				"pass",
-				"Password"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "index2.html",
+			"file": "index.php",
 			"settings":
 			{
-				"buffer_size": 626,
+				"buffer_size": 7124,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/estilos.css",
+			"settings":
+			{
+				"buffer_size": 1794,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -524,79 +541,9 @@
 			"file": "js/functions.js",
 			"settings":
 			{
-				"buffer_size": 11291,
+				"buffer_size": 14795,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/variables.js",
-			"settings":
-			{
-				"buffer_size": 317,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Administrador entidades/php/query.php",
-			"settings":
-			{
-				"buffer_size": 212,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Administrador entidades/js/script.js",
-			"settings":
-			{
-				"buffer_size": 1249,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/jim_a/Downloads/entidad.sql",
-			"settings":
-			{
-				"buffer_size": 1429757,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Administrador entidades/cuenta_cdmon",
-			"settings":
-			{
-				"buffer_size": 242,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "index.php",
-			"settings":
-			{
-				"buffer_size": 6041,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "PHP/functions.php",
-			"settings":
-			{
-				"buffer_size": 495,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "PHP/entidades.php",
-			"settings":
-			{
-				"buffer_size": 238,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -643,23 +590,29 @@
 		"/C/Users/jim_a/Documents/GitHub/entidaes",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/css",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/js",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP"
 	],
 	"file_history":
 	[
+		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/functions.php",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/index2.html",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/css/estilos.css",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/js/functions.js",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/js/variables.js",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/query.php",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/js/script.js",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/cuenta_cdmon",
+		"/C/Users/jim_a/Downloads/entidad.sql",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/filegetcontent.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/filegetcontent",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Entidades.sublime-workspace",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/js/functions.js",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/conexion.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/ramas.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/ramas - copia.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/index.html",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/cuenta_cdmon",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/index.html",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/js/script.js",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/query.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/Clases/Tipodoc.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/Clases/Suborden.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/Clases/Orden.php",
@@ -746,7 +699,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -761,6 +714,29 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"collapse",
+			"data-hid",
+			"isset",
+			"width",
+			"</select>",
+			"name",
+			"li",
+			"button",
+			"-button",
+			"li",
+			"-button",
+			"selectmenu",
+			"li",
+			"#",
+			"sel_ord",
+			"sel_car",
+			"sel_ram",
+			"#",
+			"();\n",
+			"toggleChildren",
+			"collapse",
+			"tog",
+			"toog",
 			"entidad",
 			"entidades",
 			"\n$",
@@ -865,30 +841,7 @@
 			"selections",
 			"multip",
 			"sel",
-			"ocur",
-			"ocu",
-			"todo",
-			".der",
-			"flec",
-			"todo",
-			"int2",
-			"proce",
-			"todo",
-			".der",
-			"todo",
-			"ico",
-			"video",
-			"ico",
-			"enun",
-			"hist",
-			"his",
-			"txt",
-			"ref",
-			"ref2",
-			"ref",
-			"ref2",
-			"ref",
-			"ref2"
+			"ocur"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -915,229 +868,24 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index2.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 626,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								626,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/functions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11291,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								288,
-								288
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 396.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/variables.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 317,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								163,
-								163
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Administrador entidades/php/query.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 212,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								44,
-								209
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Administrador entidades/js/script.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1249,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								694,
-								694
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/jim_a/Downloads/entidad.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1429757,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1429757,
-								1429757
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3002.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Administrador entidades/cuenta_cdmon",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 242,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								130,
-								133
-							],
-							[
-								149,
-								152
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6041,
+						"buffer_size": 7124,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2021,
-								2021
+								2045,
+								2045
 							]
 						],
 						"settings":
@@ -1147,66 +895,69 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1584.0,
+						"translation.y": 1299.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "PHP/functions.php",
+					"buffer": 1,
+					"file": "css/estilos.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 495,
+						"buffer_size": 1794,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								169,
-								169
+								1724,
+								1724
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 840.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "PHP/entidades.php",
-					"semi_transient": true,
+					"buffer": 2,
+					"file": "js/functions.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 238,
+						"buffer_size": 14795,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4221,
+								4221
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1214,7 +965,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1251,7 +1002,7 @@
 	"project": "Entidades.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":

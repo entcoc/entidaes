@@ -42,3 +42,37 @@
 .entidad circle:hover {
 	fill:red;
 }
+
+.overflow { max-height: 200px; }
+
+#sel_ram-button,#sel_ram-menu li,.ram{ background-color: #2A577F; }
+#sel_car-button,#sel_car-menu li,.car{ background-color: #3F83BF; }
+#sel_niv-button,#sel_niv-menu li,.ord{ background-color: #84B1D9; }
+#sel_ord-button,#sel_ord-menu li,.niv{ background-color: #8CBFC1; }
+#sel_subord-button,#sel_subord-menu li,.subord{ background-color: #8CBF7E; }
+#sel_dep-button,#sel_dep-menu li,.dep{ background-color: #58A633; }
+#sel_mun-button,#sel_mun-menu li,.mun{ background-color: #4A8C2B; }
+#sel_ram-button,#sel_ram-menu li{color:white;}
+#sel_car-button,#sel_car-menu li{color:white;}
+#sel_niv-button,#sel_niv-menu li{color:white;}
+#sel_ord-button,#sel_ord-menu li{color:white;}
+#sel_subord-button,#sel_subord-menu li{color:white;}
+#sel_dep-button,#sel_dep-menu li{color:white;}
+#sel_mun-button,#sel_mun-menu li{color:white;}
+
+.filtro{ 
+	width: 150px; 
+	cursor: pointer;
+	color: white;
+	margin:3px;
+	height:35px;
+	position: relative;
+	transition: left 2s;
+	text-align: center;
+	padding: 2px;
+}
+.filtros{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}

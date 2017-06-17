@@ -1,21 +1,14 @@
 <?php
 include 'Administrador entidades/php/server.php';
 include 'PHP/functions.php';
-function contiene($ar,$el){
-	for ($i=0; $i <count($ar) ; $i++) { 
-		if($ar==$el)
-			return true;
-	}
-	return false;
-}
 extract($_GET);
 $query="SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent FROM entidad WHERE ";
 $vars=array();
 $def=" ? ";
-if(isset($coin)){
+if(isset($coin)&&$coin!=""){
 	$con=$coin? " AND " : " OR ";
 }
-if(isset($ram)){
+if(isset($ram)&&$ram!=""){
 	$def="";
 	$ramas=explode(",", $ram);
 	$qram=" (";
@@ -25,7 +18,7 @@ if(isset($ram)){
 	}
 	$qram.=")$con";
 }
-if(isset($car)){
+if(isset($car)&&$car!=""){
 	$def="";
 	$carac=explode(",", $car);
 	$qcar="(";
@@ -35,7 +28,7 @@ if(isset($car)){
 	}
 	$qcar.=")$con";
 }
-if(isset($niv)){
+if(isset($niv)&&$niv!=""){
 	$def="";
 	$nivs=explode(",", $niv);
 	$qniv="(";
@@ -45,7 +38,7 @@ if(isset($niv)){
 	}
 	$qniv.=")$con";
 }
-if(isset($ord)){
+if(isset($ord)&&$ord!=""){
 	$def="";
 	$ords=explode(",", $ord);
 	$qord="(";
@@ -55,7 +48,7 @@ if(isset($ord)){
 	}
 	$qord.=")$con";
 }
-if(isset($subord)){
+if(isset($subord)&&$subord!=""){
 	$def="";
 	$subords=explode(",", $subord);
 	$qsubord="(";
@@ -65,7 +58,7 @@ if(isset($subord)){
 	}
 	$qsubord.=")$con";
 }
-if(isset($dep)){
+if(isset($dep)&&$dep!=""){
 	$def="";
 	$deps=explode(",", $dep);
 	$qdep="(";
@@ -75,7 +68,7 @@ if(isset($dep)){
 	}
 	$qdep.=")$con";
 }
-if(isset($mun)){
+if(isset($mun)&&$mun!=""){
 	$def="";
 	$muns=explode(",", $mun);
 	$qmun="(";
@@ -91,21 +84,27 @@ if($query[count($query)-2]=="AND" || $query[count($query)-2]=="OR")
 	$query[count($query)-2]="";
 $query[count($query)-2];
 $query=implode(" ", $query);
-echo $query;
 $s=$db->prepare($query);
 if($def==" ? "){
 	$vars=array(1);
 }
 if($s->execute($vars)){
+	$ramIDs=array();
 	$entidades=array();
-	$des=$db->prepare("SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent FROM entidad WHERE par_ent=?");
 	$as=$db->prepare("SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent FROM entidad WHERE id_ent=?");
 	while($ar=$s->fetch(PDO::FETCH_ASSOC))
 	{
 		array_push($entidades, $ar);
 		if($def!=" ? "){
 			$entidades=ascendientes($entidades,$as,$ar['par_ent']);
-			$entidades=descendientes($entidades,$des,$ar['id_ent']);
+		}
+	}
+	if($def!=" ? "){
+		$nEn=count($entidades);
+		for ($i=0; $i < $nEn && count($ramIDs)<9 ; $i++) {
+			if(!contiene($ramIDs,$entidades[$i]['ram_ent'])){
+				array_push($ramIDs,$entidades[$i]['ram_ent']);
+			}
 		}
 	}
 }
@@ -120,23 +119,26 @@ else{
 	<title>Document</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/jquery.ui.position.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/jquery.contextMenu.min.js"></script>
 	<script src="http://d3js.org/d3.v4.min.js"></script>
 	<script src="js/variables.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/jquery.contextMenu.min.css">
 	<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-	<form action="#">
-		<select name="ram" id="sel_ram">
+	<form action="#" method="get" onsubmit="cargarfiltros()">
+		<select name="fram" id="sel_ram">
 <?php if($s=$db->query("SELECT nom_ram, id_ram FROM rama")){ $ramas=array();
-	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($ramas, $ar); ?>
+	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ if(!count($ramIDs) || contiene($ramIDs,$ar['id_ram'])) array_push($ramas, $ar); ?>
 			<option value="<?=$ar['id_ram']?>"><?=$ar["nom_ram"]?></option>
 <?	}
 }
  ?>
 		</select>
-		<select name="car" id="sel_car">
+		<input type="hidden" name="ram">
+		<select name="fcar" id="sel_car">
 <?php if($s=$db->query("SELECT nom_car, id_car FROM caracter")){ $carac=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($carac, $ar); ?>
 			<option value="<?=$ar['id_car']?>"><?=$ar["nom_car"]?></option>
@@ -144,7 +146,8 @@ else{
 }
  ?>
 		</select>
-		<select name="niv" id="sel_niv">
+		<input type="hidden" name="car">
+		<select name="fniv" id="sel_niv">
 <?php if($s=$db->query("SELECT nom_niv, id_niv FROM nivel")){ $nivs=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($nivs, $ar); ?>
 			<option value="<?=$ar['id_niv']?>"><?=$ar["nom_niv"]?></option>
@@ -152,7 +155,8 @@ else{
 }
  ?>
 		</select>
-		<select name="ord" id="sel_ord">
+		<input type="hidden" name="niv">
+		<select name="ford" id="sel_ord">
 <?php if($s=$db->query("SELECT nom_ord, id_ord FROM orden")){ $ords=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($ords, $ar); ?>
 			<option value="<?=$ar['id_ord']?>"><?=$ar["nom_ord"]?></option>
@@ -160,7 +164,8 @@ else{
 }
  ?>
 		</select>
-		<select name="subord" id="sel_subord">
+		<input type="hidden" name="ord">
+		<select name="fsubord" id="sel_subord">
 <?php if($s=$db->query("SELECT nom_subord, id_subord FROM suborden")){ $subords=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($subords, $ar); ?>
 			<option value="<?=$ar['id_subord']?>"><?=$ar["nom_subord"]?></option>
@@ -168,7 +173,8 @@ else{
 }
  ?>
 		</select>
-		<select name="dep" id="sel_dep">
+		<input type="hidden" name="subord">
+		<select name="fdep" id="sel_dep">
 <?php if($s=$db->query("SELECT nom_dep, id_dep FROM departamento")){ $deps=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($deps, $ar); ?>
 			<option value="<?=$ar['id_dep']?>"><?=$ar["nom_dep"]?></option>
@@ -176,7 +182,8 @@ else{
 }
  ?>
 		</select>
-		<select name="mun" id="sel_mun">
+		<input type="hidden" name="dep">
+		<select name="fmun" id="sel_mun">
 <?php if($s=$db->query("SELECT nom_mun, id_mun FROM municipio")){ $muns=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($muns, $ar) ?>
 			<option value="<?=$ar['id_mun']?>"><?=$ar["nom_mun"]?></option>
@@ -184,6 +191,12 @@ else{
 }
  ?>
 		</select>
+		<input type="hidden" name="mun">
+		<br>
+		<label for="coin">Coincidir filtros</label><input id="coin" name="fcoin" type="checkbox">
+		<div class="filtros"></div>
+		<input type="hidden" name="coin">
+		<input type="submit" value="Crear vista" style="display: block;">
 	</form>
 	<div style="background: white;" id="treeShow"></div>
 	<script>
@@ -205,5 +218,14 @@ else{
 		var municipio=<?=json_encode($muns)?>;
 	</script>
 	<script src="./js/functions.js"></script>
+	<script>
+		addFiltro(<?=json_encode(explode(",", $ram))?>,"ram");
+		addFiltro(<?=json_encode(explode(",", $car))?>,"car");
+		addFiltro(<?=json_encode(explode(",", $niv))?>,"niv");
+		addFiltro(<?=json_encode(explode(",", $ord))?>,"ord");
+		addFiltro(<?=json_encode(explode(",", $subord))?>,"subord");
+		addFiltro(<?=json_encode(explode(",", $dep))?>,"dep");
+		addFiltro(<?=json_encode(explode(",", $mun))?>,"mun");
+	</script>
 </body>
 </html>

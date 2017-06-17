@@ -117,7 +117,7 @@ function armarArbol(){
      * @param  {Node} d La entidad seleccionada
      */
     function collapse(d) {
-        if (d.children) {
+        if (d && d.children) {
             d._children = d.children;
             d._children.forEach(collapse);
             d.children = null;
@@ -142,11 +142,11 @@ function armarArbol(){
      * @return {Node}   El nodo resultante.
      */
     function toggleChildren(d) {
-        if (d.children) {
+        if (d && d.children) {
             /*d._children = d.children;
             d.children = null;*/
             collapse(d);
-        } else if (d._children) {
+        } else if (d && d._children) {
             d.children = d._children;
             d._children = null;
         }
@@ -371,15 +371,15 @@ function armarArbol(){
       centrarEntidad(nodo);
     }
     var des=root.descendants();
-    toggleChildren(des[1]);
+    collapse(des[1]);
     collapse(des[2]);
-    toggleChildren(des[3]);
-    toggleChildren(des[4]);
-    toggleChildren(des[5]);
-    toggleChildren(des[6]);
-    toggleChildren(des[7]);
-    toggleChildren(des[8]);
-    toggleChildren(des[9]);
+    collapse(des[3]);
+    collapse(des[4]);
+    collapse(des[5]);
+    collapse(des[6]);
+    collapse(des[7]);
+    collapse(des[8]);
+    collapse(des[9]);
     var t=d3.zoomIdentity;
     t.k=scale;
     svg.call(zoomListener.transform,t);
@@ -394,13 +394,91 @@ $(document).ready(function(){
 			$(document).trigger('cargaCompleta');
 		}
 	});
+  $("#sel_ram").selectmenu({width:200,change:function(event,ui){
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro ram">'+ui.item.label+'</div>')
+  }}).selectmenu("menuWidget").addClass("overflow");
+  $("#sel_car").selectmenu({width:200,change:function(event,ui){
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro car">'+ui.item.label+'</div>')
+  }}).selectmenu("menuWidget").addClass("overflow");
+  $("#sel_ord").selectmenu({width:200,change:function(event,ui){
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro ord">'+ui.item.label+'</div>')
+  }}).selectmenu("menuWidget").addClass("overflow");
+  $("#sel_niv").selectmenu({width:200,change:function(event,ui){
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro niv">'+ui.item.label+'</div>')
+  }}).selectmenu("menuWidget").addClass("overflow");
+  $("#sel_subord").selectmenu({width:200,change:function(event,ui){
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro subord">'+ui.item.label+'</div>')
+  }}).selectmenu("menuWidget").addClass("overflow");
+  $("#sel_dep").selectmenu({width:200,change:function(event,ui){
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro dep">'+ui.item.label+'</div>')
+  }}).selectmenu("menuWidget").addClass("overflow");
+  $("#sel_mun").selectmenu({width:200,change:function(event,ui){
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro mun">'+ui.item.label+'</div>')
+  }}).selectmenu("menuWidget").addClass("overflow");
 });
 $(window).resize(function(){
-	w=+$('#treeShow').width();
-	h=+$('#treeShow').height();
-	$('#treeShow svg').eq(0).width(w)
-							.height(h);
-	tree.size([h,w]);
-	armarArbol();
+  w=+$('#treeShow').width();
+  h=+$('#treeShow').height();
+  $('#treeShow svg').eq(0).width(w)
+              .height(h);
+  tree.size([h,w]);
+  armarArbol();
 });
 init();
+function cargarfiltros(){
+  $('[name=coin]').val(+$('#coin').prop("checked"));
+  $('.ram').each(function(i,item){
+    var ram=$('[name=ram]');
+    var val=ram.val();
+    if(i) ram.val(val+","+$(item).data("id"));
+    else ram.val($(item).data('id'));
+  });
+  $('.car').each(function(i,item){
+    var car=$('[name=car]');
+    var val=car.val();
+    if(i) car.val(val+","+$(item).data("id"));
+    else car.val($(item).data('id'));
+  });
+  $('.ord').each(function(i,item){
+    var ord=$('[name=ord]');
+    var val=ord.val();
+    if(i) ord.val(val+","+$(item).data("id"));
+    else ord.val($(item).data('id'));
+  });
+  $('.niv').each(function(i,item){
+    var niv=$('[name=niv]');
+    var val=niv.val();
+    if(i) niv.val(val+","+$(item).data("id"));
+    else niv.val($(item).data('id'));
+  });
+  $('.subord').each(function(i,item){
+    var subord=$('[name=subord]');
+    var val=subord.val();
+    if(i) subord.val(val+","+$(item).data("id"));
+    else subord.val($(item).data('id'));
+  });
+  $('.dep').each(function(i,item){
+    var dep=$('[name=dep]');
+    var val=dep.val();
+    if(i) dep.val(val+","+$(item).data("id"));
+    else dep.val($(item).data('id'));
+  });
+  $('.mun').each(function(i,item){
+    var mun=$('[name=mun]');
+    var val=mun.val();
+    if(i) mun.val(val+","+$(item).data("id"));
+    else mun.val($(item).data('id'));
+  });
+}
+function eliminar(e){
+  $(e).animate({opacity:0},500,'swing',function(){
+    $(e).remove();
+  });
+}
+function addFiltro(ids,eclass){
+  if(ids[0]!=""){
+    for (var i = ids.length - 1; i >= 0; i--) {
+      $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ids[i]+'" class="filtro '+eclass+'">'+$("#sel_"+eclass+" option[value="+ids[i]+"]").text()+'</div>');
+    }
+  }
+}

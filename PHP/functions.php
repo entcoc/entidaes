@@ -22,4 +22,11 @@ function ascendientes($arbol, $st, $id){
 	}
 	return $arbol;
 }
+function contiene($array,$id){
+	for ($i=0; $i < count($array) ; $i++) { 
+		if($array[$i]==$id)
+			return true;
+	}
+	return false;
+}
 ?>
