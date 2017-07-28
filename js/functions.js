@@ -425,6 +425,9 @@ $(window).resize(function(){
   armarArbol();
 });
 init();
+/**
+ * Establece los filtros para ser subidos al servidor y de esta manera filtrar las entidades correspondientes.
+ */
 function cargarfiltros(){
   $('[name=coin]').val(+$('#coin').prop("checked"));
   $('.ram').each(function(i,item){
@@ -470,11 +473,22 @@ function cargarfiltros(){
     else mun.val($(item).data('id'));
   });
 }
+/**
+ * Elimina un filtro, esta función es activada al hacer click en uno de los filtros seleccionados por el usuario.
+ *
+ * @param      {object}  e       El objeto html a ser eliminado.
+ */
 function eliminar(e){
   $(e).animate({opacity:0},500,'swing',function(){
     $(e).remove();
   });
 }
+/**
+ * Esta función ayuda a conservar los filtros seleccionados en busquedas anteriores.
+ *
+ * @param      {string}  ids     Los ids correspondientes de los filtroas en la base de datos.
+ * @param      {string}  eclass  El tipo de filtro ej: rama, caracter, departamento, etc.
+ */
 function addFiltro(ids,eclass){
   if(ids[0]!=""){
     for (var i = ids.length - 1; i >= 0; i--) {
