@@ -28,7 +28,7 @@ function init(){
 function ramas(){
 	for (var i = rama.length - 1; i >= 0; i--) {
 		if(rama[i].id_ram>0)
-		  addData({id:"r"+rama[i].id_ram,name:rama[i].nom_ram,collapse:false,parent:0});
+		  addData({id:"r"+rama[i].id_ram,name:rama[i].nom_ram,collapse:false,parent:0,tDoc:"-1"});
 	}
 }
 
@@ -38,9 +38,9 @@ function ramas(){
 function entidades(){
 	for (var i = entidad.length - 1; i >= 0; i--) {
     if(parseInt(entidad[i].par_ent))
-      addData({id:"e"+entidad[i].id_ent,name:entidad[i].nom_ent,collapse:false,parent:"e"+entidad[i].par_ent});
+      addData({id:"e"+entidad[i].id_ent,name:entidad[i].nom_ent,collapse:false,parent:"e"+entidad[i].par_ent,tDoc:entidad[i].tdoc_ent});
     else
-      addData({id:"e"+entidad[i].id_ent,name:entidad[i].nom_ent,collapse:false,parent:"r"+entidad[i].ram_ent});
+      addData({id:"e"+entidad[i].id_ent,name:entidad[i].nom_ent,collapse:false,parent:"r"+entidad[i].ram_ent,tDoc:entidad[i].tdoc_ent});
   }
 }
 
@@ -155,7 +155,7 @@ function armarArbol(){
 
     /**
      * Expande o contrae la entidad a la cual se le haga click
-     * @param  {Node} d La entidad a la cual dele hizo click.
+     * @param  {Node} d La entidad a la cual se hizo click.
      */
     function click(d) {
         if (d3.event.defaultPrevented) return; // click suppressed
@@ -163,7 +163,25 @@ function armarArbol(){
         pintarNodo(d);
         //centrarEntidad(d);
     }
-
+    /**
+     * Detecta si el mouse está sobre una entidad
+     * @param  {Node} d La entidad actual.
+     */
+    function circHover(d) {
+        var circle=$(this).siblings().css({fill:"red"});
+    }
+    /**
+     * Detecta si el mouse está por fuera de una entidad
+     * @param  {Node} d La entidad actual.
+     */
+    function circOut(d) {
+        var circle=$(this).siblings().css({fill:""});
+    }
+    function clickEnText(d){
+      if(d.data.tDoc!="-1"){
+        location.href="entidad.php?ent="+d.id.slice(1);
+      }
+    }
     function pintarNodo(nodo){
     	var maxLabelLength=0;
     	/**
@@ -248,10 +266,10 @@ function armarArbol(){
         })
         .attr("transform",function(d){
           return "translate("+nodo.y0+","+nodo.x0+")";
-        })
-        .on("click",click);
+        });
 
       expandidas.append("text")
+        .on("click",clickEnText)
         .attr("x",function(d){
           return d.children || d._children ? -15 : 15;
         })
@@ -269,6 +287,7 @@ function armarArbol(){
         .style("fill-opacity",1);
 
       var circle=expandidas.append("g")
+        .on("click",click);
       circle.append("circle")
         .attr("r",0)
         .transition(transit)
@@ -282,6 +301,8 @@ function armarArbol(){
             t="-";
           return t;
         })
+        .on("mouseover",circHover)
+        .on("mouseout",circOut)
         .attr("text-anchor","middle")
         .attr("font-size",20)
         .attr("dy",6)

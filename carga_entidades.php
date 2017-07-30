@@ -1,8 +1,8 @@
 <?php
 include 'Administrador entidades/php/server.php';
 include 'PHP/functions.php';
-extract($_GET);
-$query="SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent FROM entidad WHERE ";
+extract($_POST);
+$query="SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent, tdoc_ent FROM entidad WHERE ";
 $vars=array();
 $def=" ? ";
 if(isset($coin)&&$coin!=""){
@@ -78,7 +78,13 @@ if(isset($mun)&&$mun!=""){
 	}
 	$qmun.=")$con";
 }
-$query.=$def.$qram.$qcar.$qniv.$qord.$qsubord.$qdep.$qmun;
+if(isset($search)){
+	$def="";
+	$search=htmlentities($search);
+	$qsearch="nom_ent LIKE CONCAT('%',?,'%')";
+	array_push($vars, $search);
+}
+$query.=$def.$qram.$qcar.$qniv.$qord.$qsubord.$qdep.$qmun.$qsearch;
 $query=explode(" ", $query);
 if($query[count($query)-2]=="AND" || $query[count($query)-2]=="OR")
 	$query[count($query)-2]="";
@@ -91,7 +97,7 @@ if($def==" ? "){
 if($s->execute($vars)){
 	$ramIDs=array();
 	$entidades=array();
-	$as=$db->prepare("SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent FROM entidad WHERE id_ent=?");
+	$as=$db->prepare("SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent, tdoc_ent FROM entidad WHERE id_ent=?");
 	while($ar=$s->fetch(PDO::FETCH_ASSOC))
 	{
 		array_push($entidades, $ar);

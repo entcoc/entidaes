@@ -1,7 +1,7 @@
 //Variable auxiliar para concatenar las entidades
 var data=[];
 //Inserción del primer dato
-data.push({id:"0",name:"Estado Colombiano",collapse:false,parent:null});
+data.push({id:"0",name:"Estado Colombiano",collapse:false,parent:null,tDoc:"-1"});
 //Layout del árbol
 var tree;
 //Nodos del árbol

@@ -13,9 +13,29 @@
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/jquery.contextMenu.min.css">
 	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="icon" href="images/favicon.ico">
 </head>
 <body>
-	<form action="#" method="get" onsubmit="cargarfiltros()">
+	<header>
+        <a class="nav-logo" href="">
+            <img src="images/Logo.svg" alt="" height="100" width="auto">
+        </a>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="entidades.php" class="is-active">Entidades</a></li>
+                    <li><a href="#">Manual de Uso</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                </ul>
+            </nav>
+            <form action="entidades.php" method="post">
+                <input name="search" type="text" placeholder="Buscar..." class="button red">
+            </form>
+        </div>
+    </header>
+    <div class="content_entidades">
+	<form action="#" id="filtros" method="post" onsubmit="cargarfiltros()">
 		<select name="fram" id="sel_ram">
 <?php if($s=$db->query("SELECT nom_ram, id_ram FROM rama")){ $ramas=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ if(!count($ramIDs) || contiene($ramIDs,$ar['id_ram'])) array_push($ramas, $ar); ?>
@@ -86,6 +106,7 @@
 		<input type="submit" value="Crear vista" style="display: block;">
 	</form>
 	<div style="background: white;" id="treeShow"></div>
+	</div>
 	<script>
 		//Listado de ramas del poder público
 		var rama=<?=json_encode($ramas)?>;
