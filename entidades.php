@@ -17,7 +17,7 @@
 </head>
 <body>
 	<header>
-        <a class="nav-logo" href="">
+        <a class="nav-logo" href="/">
             <img src="images/Logo.svg" alt="" height="100" width="auto">
         </a>
         <div class="header-right">

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"lat",
+				"latlng"
+			],
+			[
 				"enti",
 				"entidad"
 			],
@@ -510,15 +514,55 @@
 			[
 				"TAB",
 				"tabla1"
-			],
-			[
-				"th",
-				"this"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "entidad.php",
+			"settings":
+			{
+				"buffer_size": 3560,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/familia/Downloads/Papá/Google maps Ejemplo 2.html",
+			"settings":
+			{
+				"buffer_size": 1372,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "entidades.php",
+			"settings":
+			{
+				"buffer_size": 5208,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "latlng.php",
+			"settings":
+			{
+				"buffer_size": 12560,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "latlng.php"
+			}
+		},
+		{
+			"file": "Administrador entidades/cuenta_cdmon",
+			"settings":
+			{
+				"buffer_size": 242,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -563,10 +607,12 @@
 		"/C/Users/familia/Documents/GitHub/entidaes",
 		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades",
 		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/php",
-		"/C/Users/familia/Documents/GitHub/entidaes/Base de datos"
+		"/C/Users/familia/Documents/GitHub/entidaes/Base de datos",
+		"/C/Users/familia/Documents/GitHub/entidaes/js"
 	],
 	"file_history":
 	[
+		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/php/entidad.php",
 		"/C/Users/familia/Documents/GitHub/entidaes/js/functions.js",
 		"/C/Users/familia/Documents/GitHub/entidaes/js/variables.js",
 		"/C/Users/familia/Documents/GitHub/entidaes/entidades.php",
@@ -699,6 +745,47 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Longitud:",
+			"Latitud:",
+			"Latitud: ",
+			"(\\d) $",
+			" ",
+			"|",
+			" | ",
+			" | ",
+			" | ",
+			"\t",
+			"\"",
+			"\t",
+			"\"",
+			"\t",
+			"Longitud: ",
+			"Latitud: ",
+			"\nLatitud: ",
+			" | ",
+			"Departamento",
+			"\t",
+			",",
+			"\t",
+			"Alcaldía",
+			"-",
+			".",
+			"Concejo",
+			"$entidades",
+			"Longitud: ",
+			"Latitud: ",
+			" | ",
+			"Ministerio",
+			"Trabajo",
+			"latlng",
+			"</s",
+			"</st",
+			"ong>",
+			"</str",
+			"</s",
+			"1e",
+			"1",
+			"=\"/\">",
 			"print_r",
 			"echo",
 			"init",
@@ -785,55 +872,18 @@
 			"y0",
 			"svgG",
 			"vis.",
-			"vis",
-			"svgGroup",
-			"vis",
-			"vis =",
-			"vis=",
-			"vis",
-			"dia",
-			"diagonal",
-			"limite",
-			"init",
-			";\n",
-			"totalNodes",
-			"link",
-			"centerNode",
-			"expand",
-			"source",
-			"diagonal",
-			"svgGro",
-			"pan",
-			"svgg",
-			"arbol",
-			"zoomListener",
-			"zoom",
-			"translate(",
-			"transla(",
-			"transla",
-			"click",
-			"links",
-			"$",
-			"_ent",
-			"?",
-			"?,",
-			"_ent,",
-			"?",
-			"prof",
-			"profundidad",
-			"entidad",
-			"class=\"nodeCircle\" ",
-			"\"node\"",
-			"node",
-			"<path",
-			"path"
+			"vis"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"$1",
+			"\\\"",
+			"$1",
+			"\\\"",
 			"<a target=\"_blank\" href=\"https://www.linkedin",
 			"<a target=\"_blank\"",
 			"images(2).jpg",
@@ -853,8 +903,151 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "entidad.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								283,
+								283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1200.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/familia/Downloads/Papá/Google maps Ejemplo 2.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1324,
+								1338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "entidades.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								899,
+								899
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1380.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "latlng.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12240,
+								12240
+							]
+						],
+						"settings":
+						{
+							"auto_name": "latlng.php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 858.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Administrador entidades/cuenta_cdmon",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								162
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -897,7 +1090,7 @@
 	"project": "Entidades.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
