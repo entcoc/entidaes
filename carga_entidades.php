@@ -81,8 +81,8 @@ if(isset($mun)&&$mun!=""){
 if(isset($search)){
 	$def="";
 	$search=htmlentities($search);
-	$qsearch="nom_ent LIKE CONCAT('%',?,'%')";
-	array_push($vars, $search);
+	$qsearch="nom_ent LIKE CONCAT('%',?,'%') OR sig_ent LIKE CONCAT('%',?,'%') OR web_ent LIKE CONCAT('%',?,'%') OR des_ent LIKE CONCAT('%',?,'%')";
+	$vars=array_merge($vars,array($search,$search,$search,$search));
 }
 $query.=$def.$qram.$qcar.$qniv.$qord.$qsubord.$qdep.$qmun.$qsearch;
 $query=explode(" ", $query);
