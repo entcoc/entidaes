@@ -1,15 +1,19 @@
 <?php include 'Administrador entidades/php/server.php';
-$query="CALL getEntidad(?)";
-$s=$db->prepare($query);
+include 'PHP/functions.php';
+$s=$db->prepare("CALL getEntidad(?)");
 if($s->execute(array($_GET['ent']))){
-	if($ar=$s->fetch(PDO::FETCH_ASSOC)){
-		$entidad=(object)$ar;
-	}
-}else{
-	echo $s->errorInfo()[2];
-} ?>
+	$row = $s->fetchAll(PDO::FETCH_ASSOC);
+	$entidad=(object)$row[0];
+	$s->closeCursor();
+	$asc=$db->prepare("SELECT id_ent as id, nom_ent as nom, par_ent FROM entidad WHERE id_ent=? LIMIT 1");
+	$entas=array();
+	$entas=ascendientes($entas,$asc,$entidad->par,1,false);
+	$ds=$db->prepare("SELECT id_ent as id, nom_ent as nom FROM entidad WHERE par_ent=? ORDER BY RAND() LIMIT 3");
+	$entds=descendientes(array(),$ds,$_GET['ent'],1,1);
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title><?=$entidad->nom?></title>
@@ -42,6 +46,23 @@ if($s->execute(array($_GET['ent']))){
 			<div class="datos-col">
 				<img src="<?=$entidad->img?>" alt="<?=$entidad->nom?>" class="img_ent">
 				<p class="des_ent"><?=$entidad->des?></p>
+				<h2>Entidades relacionadas</h2>
+				<div class="info">
+					<h2>Nivel Superior</h2>
+					<ul class="datos-list">
+						<li><a href="?ent=<?=$entas[0]->id?>"><?=$entas[0]->nom?></a></li>
+						<li><a href="?ent=<?=$entas[1]->id?>"><?=$entas[1]->nom?></a></li>
+						<li><a href="?ent=<?=$entas[2]->id?>"><?=$entas[2]->nom?></a></li>
+					</ul>
+				</div>
+				<div class="info">
+					<h2>Nivel inferior</h2>
+					<ul class="datos-list">
+						<li><a href="?ent=<?=$entds[0]->id?>"><?=$entds[0]->nom?></a></li>
+						<li><a href="?ent=<?=$entds[1]->id?>"><?=$entds[1]->nom?></a></li>
+						<li><a href="?ent=<?=$entds[2]->id?>"><?=$entds[2]->nom?></a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="datos-col">
 				<div class="info">

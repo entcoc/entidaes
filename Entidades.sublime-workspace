@@ -4,40 +4,76 @@
 		"selected_items":
 		[
 			[
-				"lat",
-				"latlng"
+				"par",
+				"par_ent"
+			],
+			[
+				"en",
+				"entidad"
+			],
+			[
+				"ent",
+				"entds"
+			],
+			[
+				"exp",
+				"expand"
+			],
+			[
+				"html",
+				"htmlEntities"
+			],
+			[
+				"htm",
+				"htmlEntities"
+			],
+			[
+				"st",
+				"style"
+			],
+			[
+				"u",
+				"url()"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"fle",
+				"flex-start"
+			],
+			[
+				"array_m",
+				"array_merge"
 			],
 			[
 				"enti",
 				"entidad"
 			],
 			[
-				"js",
-				"json_decode"
-			],
-			[
-				"m",
-				"myId"
-			],
-			[
-				"s",
-				"search"
-			],
-			[
-				"entida",
-				"entidades"
-			],
-			[
-				"circ",
-				"circHover"
-			],
-			[
-				"bor",
-				"border"
-			],
-			[
-				"margi",
+				"marg",
 				"margin"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"des",
+				"descripcion"
+			],
+			[
+				"fge",
+				"fgetcsv"
 			],
 			[
 				"fil",
@@ -46,10 +82,6 @@
 			[
 				"cur",
 				"cursor"
-			],
-			[
-				"fle",
-				"flex-wrap"
 			],
 			[
 				"val",
@@ -84,10 +116,6 @@
 				"transform"
 			],
 			[
-				"en",
-				"entidades"
-			],
-			[
 				"cara",
 				"carac"
 			],
@@ -108,16 +136,16 @@
 				"transition"
 			],
 			[
+				"entida",
+				"entidad"
+			],
+			[
 				"se",
 				"select"
 			],
 			[
 				"ar",
 				"armarArbol"
-			],
-			[
-				"des",
-				"descendants"
 			],
 			[
 				"zoo",
@@ -138,6 +166,10 @@
 			[
 				"lo",
 				"log"
+			],
+			[
+				"s",
+				"scale"
 			],
 			[
 				"cen",
@@ -182,10 +214,6 @@
 			[
 				"tr",
 				"trigger"
-			],
-			[
-				"htm",
-				"htmlentities"
 			],
 			[
 				"sto",
@@ -276,6 +304,10 @@
 				"indexOf"
 			],
 			[
+				"bor",
+				"border-radius"
+			],
+			[
 				"op",
 				"opacity"
 			],
@@ -312,6 +344,10 @@
 				"print_r"
 			],
 			[
+				"js",
+				"json_encode"
+			],
+			[
 				"z",
 				"z-index"
 			],
@@ -326,10 +362,6 @@
 			[
 				"flex-",
 				"flex-wrap"
-			],
-			[
-				"par",
-				"partes"
 			],
 			[
 				"min",
@@ -452,14 +484,6 @@
 				"check"
 			],
 			[
-				"marg",
-				"margin-right"
-			],
-			[
-				"margin",
-				"margin-left"
-			],
-			[
 				"ui-bt",
 				"ui-btn-inline"
 			],
@@ -480,10 +504,6 @@
 				"text-align"
 			],
 			[
-				"mar",
-				"margin"
-			],
-			[
 				"ingre",
 				"ingredientes"
 			],
@@ -494,65 +514,30 @@
 			[
 				"wri",
 				"writeAllMemory"
-			],
-			[
-				"uin",
-				"uint8_t"
-			],
-			[
-				"uint",
-				"uint32_t"
-			],
-			[
-				"tab",
-				"tabla2"
-			],
-			[
-				"prin",
-				"print_r"
-			],
-			[
-				"TAB",
-				"tabla1"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 3506,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<?php include 'Administrador entidades/php/server.php';\ninclude 'PHP/functions.php';\n$s=$db->prepare(\"CALL getEntidad(?)\");\nif($s->execute(array($_GET['ent']))){\n\t$row = $s->fetchAll(PDO::FETCH_ASSOC);\n\t$entidad=(object)$row[0];\n\t$s->closeCursor();\n\t$asc=$db->prepare(\"SELECT id_ent as id, nom_ent as nom, par_ent FROM entidad WHERE id_ent=? LIMIT 1\");\n\t$entas=array();\n\t$entas=ascendientes($entas,$asc,$entidad->par,1,false);\n\t$ds=$db->prepare(\"SELECT id_ent as id, nom_ent as nom FROM entidad WHERE par_ent=? ORDER BY RAND() LIMIT 3\");\n\t$entds=descendientes(array(),$ds,$_GET['ent'],1,1);\n\tarray_\n}\n?>\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title><?=$entidad->nom?></title>\n\t<link href=\"https://fonts.googleapis.com/css?family=Open+Sans|Roboto\" rel=\"stylesheet\">\n    <link rel=\"stylesheet\" href=\"css/estilos.css\">\n    <link rel=\"icon\" href=\"images/favicon.ico\">\n</head>\n<body>\n\t<header>\n\t\t<a class=\"nav-logo\" href=\"/\">\n\t\t\t<img src=\"images/Logo.svg\" alt=\"\" height=\"100\" width=\"auto\">\n\t\t</a>\n\t\t<div class=\"header-right\">\n\t\t\t<nav>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a href=\"/\">Inicio</a></li>\n\t\t\t\t\t<li><a href=\"entidades.php\" class=\"is-active\">Entidades</a></li>\n\t\t\t\t\t<li><a href=\"#\">Manual de Uso</a></li>\n\t\t\t\t\t<li><a href=\"#\">Acerca de</a></li>\n\t\t\t\t</ul>\n\t\t\t</nav>\n\t\t\t<form action=\"entidades.php\" method=\"post\">\n\t\t\t\t<input name=\"search\" type=\"text\" placeholder=\"Buscar...\" class=\"button red\">\n\t\t\t</form>\n\t\t</div>\n\t</header>\n\t<section class=\"entidad\">\n\t\t<h1><?=$entidad->nom?></h1>\n\t\t<div class=\"datos\">\n\t\t\t<div class=\"datos-col\">\n\t\t\t\t<img src=\"<?=$entidad->img?>\" alt=\"<?=$entidad->nom?>\" class=\"img_ent\">\n\t\t\t\t<p class=\"des_ent\"><?=$entidad->des?></p>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Jerarquía hacia arriba</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entas[0]->id?>\"><?=$entas[0]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entas[1]->id?>\"><?=$entas[1]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entas[2]->id?>\"><?=$entas[2]->nom?></a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Jerarquía hacia abajo</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entds[0]->id?>\"><?=$entds[0]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entds[1]->id?>\"><?=$entds[1]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entds[2]->id?>\"><?=$entds[2]->nom?></a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"datos-col\">\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Tipo de entidad</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><strong>Rama: </strong><?=$entidad->ram?></li>\n\t\t\t\t\t\t<li><strong>Caracter: </strong><?=$entidad->car?></li>\n\t\t\t\t\t\t<li><strong>Nivel: </strong><?=$entidad->niv?></li>\n\t\t\t\t\t\t<li><strong>Orden: </strong><?=$entidad->ord?></li>\n\t\t\t\t\t\t<li><strong>Suborden: </strong><?=$entidad->subord?></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Información General</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><strong><?=$entidad->tdoc?>: </strong><?=$entidad->doc?></li>\n\t\t\t\t\t\t<li><strong>Sigla: </strong><?=$entidad->sig?></li>\n\t\t\t\t\t\t<li><strong>Web: </strong><a href=\"<?=$entidad->web?>\" target=\"_blank\"><?=$entidad->web?></a></li>\n\t\t\t\t\t\t<li><strong>Representante: </strong><?=$entidad->rep?></li>\n\t\t\t\t\t\t<li><strong>Telefono 1: </strong><a href=\"tel:<?=$entidad->tel1?>\"><?=$entidad->tel1?></a></li>\n\t\t\t\t\t\t<li><strong>Telefono 2: </strong><a href=\"tel:<?=$entidad->tel2?>\"><?=$entidad->tel2?></a></li>\n\t\t\t\t\t\t<li><strong>Telefono 3: </strong><a href=\"tel:<?=$entidad->tel3?>\"><?=$entidad->tel3?></a></li>\n\t\t\t\t\t\t<li><strong>Fax: </strong><?=$entidad->fax?></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Ubicación</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><strong>Departamento: </strong><?=$entidad->dep?></li>\n\t\t\t\t\t\t<li><strong>Municipio: </strong><?=$entidad->mun?></li>\n\t\t\t\t\t\t<li><strong>Direccion: </strong><?=$entidad->dir?></li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t<div id=\"map\"></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</section>\n\t<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\n\t<script type=\"text/javascript\">\n\t\tfunction initMap(){\n\t\t\tfunction inicializar(lat,lng) {\n\t\t\t\tvar ubicacion=new google.maps.LatLng(lat,lng);\n\t\t\t\tvar map = new google.maps.Map(document.getElementById(\"map\"),{center:ubicacion,zoom:20});\n\t\t\t\tfunction informacion(ubicacion, descripcion,map) {\n\t\t\t\t\tvar marca = new google.maps.Marker({\n\t\t\t\t\t\tposition: ubicacion,\n\t\t\t\t\t\tmap: map\n\t\t\t\t\t});\n\t\t\t\t\tvar infoWindow=new google.maps.InfoWindow({content:descripcion});\n\t\t\t\t\tmarca.addListener('click',function(){\n\t\t\t\t\t\tinfoWindow.open(map,marca);\n\t\t\t\t\t});\n\t\t\t\t\treturn marca;\n\t\t\t\t}\n\t\t\t\tvar descripcion = '<b><?=$entidad->nom?></b><br/><?=$entidad->dir?><br />';\n\t\t\t\tvar marca = informacion(ubicacion, descripcion,map); \n\t\t\t}\n<? if($entidad->lat!=\"\"){ ?>\n\t\t\tinicializar(<?=$entidad->lat?>,<?=$entidad->lng?>);\n<? }else{ ?>\n\t\t\tfunction codeAddress() {\n\t\t\t\tvar geocoder = new google.maps.Geocoder();\n\t\t\t\tvar nombre=$('<p>').html(\"<?=$entidad->nom?>\").text();\n\t\t\t\tvar address = nombre;\n\t\t\t\tgeocoder.geocode( { 'address': address}, function(results, status) {\n\t\t\t\t\tif (status == 'OK') {\n\t\t\t\t\t\tvar loc=results[0].geometry.location;\n\t\t\t\t\t\tinicializar(loc.lat(),loc.lng());\n\t\t\t\t\t\tvar data={ent:\"<?=$entidad->nom?>\",lat:loc.lat(),lng:loc.lng()};\n\t\t\t\t\t\t$.post(\"latlng.php\",data,function(d){\n\t\t\t\t\t\t\tconsole.log(d);\n\t\t\t\t\t\t});\n\t\t\t\t\t} else {\n\t\t\t\t\t\tconsole.log(\"no encontrado\");\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}\n\t\t\tcodeAddress();\n\t\t<? } ?>\n\t\t}\n\t\t</script>\n\t<!-- <script src=\"http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyAjvryudz2XTVjean_g4BQDdeT0O3J-cuU\" type=\"text/javascript\"></script> -->\n\t<script async defer\n    src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAjvryudz2XTVjean_g4BQDdeT0O3J-cuU&callback=initMap\">\n    </script>\n\t</body>\n\t</html>",
 			"file": "entidad.php",
+			"file_size": 5855,
+			"file_write_time": 131462956308193963,
 			"settings":
 			{
-				"buffer_size": 3560,
+				"buffer_size": 5709,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/familia/Downloads/Papá/Google maps Ejemplo 2.html",
-			"settings":
-			{
-				"buffer_size": 1372,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "entidades.php",
-			"settings":
-			{
-				"buffer_size": 5208,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "latlng.php",
-			"settings":
-			{
-				"buffer_size": 12560,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "latlng.php"
 			}
 		},
 		{
@@ -560,6 +545,86 @@
 			"settings":
 			{
 				"buffer_size": 242,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "PHP/functions.php",
+			"settings":
+			{
+				"buffer_size": 887,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "entidades.php",
+			"settings":
+			{
+				"buffer_size": 5368,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "carga_entidades.php",
+			"settings":
+			{
+				"buffer_size": 3062,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/functions.js",
+			"settings":
+			{
+				"buffer_size": 17737,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/jim_a/Downloads/Vista (2).svg",
+			"settings":
+			{
+				"buffer_size": 380575,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 52 files for \"var root\"\n\nC:\\Users\\jim_a\\Documents\\GitHub\\entidaes\\js\\variables.js:\n    6  var tree;\n    7  //Nodos del árbol\n    8: var root;\n    9  //Ancho y alto del svg a dibujar\n   10  var w=0,h=0;\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 231,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "js/variables.js",
+			"settings":
+			{
+				"buffer_size": 327,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/jim_a/Desktop/Sin título-2.svg",
+			"settings":
+			{
+				"buffer_size": 268,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/estilos.css",
+			"settings":
+			{
+				"buffer_size": 7298,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -604,33 +669,39 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/familia/Documents/GitHub/entidaes",
-		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades",
-		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/php",
-		"/C/Users/familia/Documents/GitHub/entidaes/Base de datos",
-		"/C/Users/familia/Documents/GitHub/entidaes/js"
+		"/C/Users/jim_a/Documents/GitHub/entidaes",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/css",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/images",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/js",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP"
 	],
 	"file_history":
 	[
-		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/php/entidad.php",
-		"/C/Users/familia/Documents/GitHub/entidaes/js/functions.js",
-		"/C/Users/familia/Documents/GitHub/entidaes/js/variables.js",
-		"/C/Users/familia/Documents/GitHub/entidaes/entidades.php",
-		"/C/Users/familia/Documents/GitHub/entidaes/css/estilos.css",
-		"/C/Users/familia/Documents/GitHub/entidaes/carga_entidades.php",
-		"/C/Users/familia/Documents/GitHub/entidaes/index.html",
-		"/C/Users/familia/Documents/GitHub/entidaes/entidad.php",
-		"/C/Users/familia/Downloads/Papá/vectorpaint (1).svg",
-		"/C/Users/familia/Downloads/Papá/leo.php",
-		"/C/Users/familia/Downloads/Papá/vectorpaint.svg",
-		"/C/Users/familia/Documents/GitHub/entidaes/images/Logo.svg",
-		"/C/Users/familia/Documents/GitHub/entidaes/js/interface.js",
-		"/C/Users/familia/Documents/GitHub/entidaes/css/jquery.bxslider.min.css",
-		"/C/Users/familia/Documents/GitHub/entidaes/images/Logo0.1.svg",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/entidades.php",
+		"/C/Users/jim_a/Downloads/cinescuela/js/interface.js",
+		"/C/Users/jim_a/Downloads/Vista.svg",
+		"/C/Users/jim_a/Downloads/Vista (1).svg",
+		"/C/Users/jim_a/Downloads/Vista (3).svg",
+		"/C/Users/jim_a/Desktop/Sin título-2.svg",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/carga_entidades.php",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/latlng.php",
+		"/C/Users/jim_a/Desktop/Nueva carpeta/index (1).html",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/estilos.css",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/subircsv.php",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/subir.html",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/js/functions.js",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/css/estilos.css",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/index.php",
+		"/C/Users/jim_a/Downloads/index (1).html",
+		"/C/Users/jim_a/AppData/Local/Temp/Rar$DRa0.488/busqueda.lnk",
+		"/C/Users/jim_a/Desktop/idiomas.json",
+		"/C/Users/jim_a/Desktop/CocreaLab/Visualizacion de Entidades Publicas/Alcaldias.csv",
+		"/C/Users/jim_a/Desktop/CocreaLab/Visualizacion de Entidades Publicas/latlng.csv",
+		"/C/Users/jim_a/Desktop/CocreaLab/Visualizacion de Entidades Publicas/flare.csv",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/subircsv.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/functions.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/index2.html",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/css/estilos.css",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/js/functions.js",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/js/variables.js",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/query.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/js/script.js",
@@ -745,74 +816,46 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"Longitud:",
-			"Latitud:",
-			"Latitud: ",
-			"(\\d) $",
-			" ",
-			"|",
-			" | ",
-			" | ",
-			" | ",
-			"\t",
+			"entds",
+			"id?>\"><?=$entas",
+			"update_contentJson",
+			"pintarNodo",
+			"togg",
+			"var root",
+			"root",
+			"armarArbol",
+			"ó",
+			"í",
+			"é",
+			"á",
+			"ó",
+			"\"+\"",
 			"\"",
-			"\t",
-			"\"",
-			"\t",
-			"Longitud: ",
-			"Latitud: ",
-			"\nLatitud: ",
-			" | ",
-			"Departamento",
-			"\t",
-			",",
-			"\t",
-			"Alcaldía",
-			"-",
-			".",
-			"Concejo",
-			"$entidades",
+			"+",
+			".overl",
+			"overlay",
+			"#4A8C2B, #FFFFFF",
+			"lat",
+			"$lat",
 			"Longitud: ",
 			"Latitud: ",
 			" | ",
-			"Ministerio",
-			"Trabajo",
-			"latlng",
-			"</s",
-			"</st",
-			"ong>",
-			"</str",
-			"</s",
-			"1e",
-			"1",
-			"=\"/\">",
-			"print_r",
-			"echo",
-			"init",
-			"ramas",
-			"hover",
-			"on(\"click\"",
-			"click",
-			"site/",
-			"filtros",
-			"</p>\n                        </div>",
-			"</div>",
-			"http://cinescuela.org/css/",
-			"overl",
-			"#slider_principal",
-			"#entidades_principal",
-			".slider_cinescuela",
-			".phrases_cinescuela",
-			".slider_cinescuela",
-			".phrases_cinescuela",
-			"div",
-			"contenedor_slider",
-			"\">\n",
-			"<l",
-			"<m",
-			"<",
-			"FF0000",
-			"96110d",
+			"^$",
+			"\t",
+			"Longitud: ",
+			"Latitud: ",
+			" | ",
+			"\t",
+			"Agencia colombiana para la Reintegración de Personas y Grupos Alzados En Armas",
+			"\\t",
+			"\\$",
+			"; ",
+			" |",
+			"Longitud: ",
+			"Latitud: ",
+			"ram",
+			"addFiltro",
+			"cargarfiltros",
 			"collapse",
 			"data-hid",
 			"isset",
@@ -872,18 +915,46 @@
 			"y0",
 			"svgG",
 			"vis.",
-			"vis"
+			"vis",
+			"svgGroup",
+			"vis",
+			"vis =",
+			"vis=",
+			"vis",
+			"dia",
+			"diagonal",
+			"limite",
+			"init",
+			";\n",
+			"totalNodes",
+			"link",
+			"centerNode",
+			"expand",
+			"source",
+			"diagonal",
+			"svgGro",
+			"pan",
+			"svgg",
+			"arbol",
+			"zoomListener",
+			"zoom",
+			"translate(",
+			"transla(",
+			"transla",
+			"click",
+			"links",
+			"$"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
-			"$1",
-			"\\\"",
-			"$1",
-			"\\\"",
+			"o",
+			"Latitud:  | Longitud: ",
+			";",
+			"",
 			"<a target=\"_blank\" href=\"https://www.linkedin",
 			"<a target=\"_blank\"",
 			"images(2).jpg",
@@ -903,80 +974,54 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "entidad.php",
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3560,
+						"buffer_size": 3506,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								283,
-								283
+								996,
+								810
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1200.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/C/Users/familia/Downloads/Papá/Google maps Ejemplo 2.html",
+					"file": "entidad.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1372,
+						"buffer_size": 5709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1324,
-								1338
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 240.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "entidades.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5208,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								899,
-								899
+								598,
+								598
 							]
 						],
 						"settings":
@@ -985,45 +1030,16 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1380.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "latlng.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12560,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12240,
-								12240
-							]
-						],
-						"settings":
-						{
-							"auto_name": "latlng.php",
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 858.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "Administrador entidades/cuenta_cdmon",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 242,
@@ -1033,8 +1049,8 @@
 						"selection":
 						[
 							[
-								154,
-								162
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1045,7 +1061,284 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "PHP/functions.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								753,
+								753
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "entidades.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5368,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1348,
+								1348
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "carga_entidades.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3062,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1860.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "js/functions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17737,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2406,
+								2406
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 377.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/jim_a/Downloads/Vista (2).svg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 380575,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								281080,
+								281086
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 49581.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 231,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										142,
+										150
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								147,
+								147
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "js/variables.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 327,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								221,
+								221
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/jim_a/Desktop/Sin título-2.svg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								255,
+								255
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "css/estilos.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1817,
+								1817
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5855.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]

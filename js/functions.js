@@ -54,6 +54,7 @@ function addData(obj){
 	}
 }
 
+
 /**
  * Muestra en pantalla el árbol resultante.
  */
@@ -79,7 +80,50 @@ function armarArbol(){
         scale=d3.event.transform.k;
         g.attr("transform", d3.event.transform);
     }
+  /**
+   * Contrae todos los descendientes de una entidad.
+   * @param  {Node} d La entidad seleccionada
+   */
+  function collapse(d) {
+      if (d && d.children) {
+          d._children = d.children;
+          d._children.forEach(collapse);
+          d.children = null;
+      }
+  }
 
+  /**
+   * Expande todas las entidades descendientes.
+   * @param  {Node} d La entidad a expandir
+   */
+  function expand(d) {
+      if (d._children) {
+          d.children = d._children;
+          d.children.forEach(expand);
+          d._children = null;
+      }
+      else{
+        if(d.children)
+            d.children.forEach(expand);
+      }
+  }
+
+  /**
+   * Expande o contrae la entidad seleccionada.
+   * @param  {Node} d La entidad a aplicar la expanción o contracción.
+   * @return {Node}   El nodo resultante.
+   */
+  function toggleChildren(d) {
+      if (d && d.children) {
+          /*d._children = d.children;
+          d.children = null;*/
+          collapse(d);
+      } else if (d && d._children) {
+          d.children = d._children;
+          d._children = null;
+      }
+      return d;
+  }
     //Se establecen los limites del zoom entre 0.1 mínimo y 3 máximo
     var zoomListener = d3.zoom().scaleExtent([0.1, 3]).on("zoom", zoomanddrag);
     window.milist=zoomListener;
@@ -112,46 +156,7 @@ function armarArbol(){
           });
     }
 
-    /**
-     * Contrae todos los descendientes de una entidad.
-     * @param  {Node} d La entidad seleccionada
-     */
-    function collapse(d) {
-        if (d && d.children) {
-            d._children = d.children;
-            d._children.forEach(collapse);
-            d.children = null;
-        }
-    }
-
-    /**
-     * Expande todas las entidades descendientes.
-     * @param  {Node} d La entidad a expandir
-     */
-    function expand(d) {
-        if (d._children) {
-            d.children = d._children;
-            d.children.forEach(expand);
-            d._children = null;
-        }
-    }
-
-    /**
-     * Expande o contrae la entidad seleccionada.
-     * @param  {Node} d La entidad a aplicar la expanción o contracción.
-     * @return {Node}   El nodo resultante.
-     */
-    function toggleChildren(d) {
-        if (d && d.children) {
-            /*d._children = d.children;
-            d.children = null;*/
-            collapse(d);
-        } else if (d && d._children) {
-            d.children = d._children;
-            d._children = null;
-        }
-        return d;
-    }
+    
 
     /**
      * Expande o contrae la entidad a la cual se le haga click
@@ -294,7 +299,7 @@ function armarArbol(){
         .attr("r",15);
       circle.append("text")
         .text(function(d){
-          var t="";
+          var t="x";
           if(d._children)
             t="+";
           if(d.children)
@@ -338,7 +343,7 @@ function armarArbol(){
         })
         .selectAll(".entidad g text")
         .text(function(d){
-          var t="";
+          var t="x";
           if(d._children)
             t="+";
           if(d.children)
@@ -407,6 +412,19 @@ function armarArbol(){
     pintarNodo(root);
 }
 window.carga=0;
+String.prototype.toUnicode = function(){
+    var result = "";
+    for(var i = 0; i < this.length; i++){
+        // Assumption: all characters are < 0xffff
+        result += "\\u" + ("000" + this[i].charCodeAt(0).toString(16)).substr(-4);
+    }
+    return result;
+};
+String.prototype.toHtmlEntities = function() {
+    return this.replace(/./gm, function(s) {
+        return "&#" + s.charCodeAt(0) + ";";
+    });
+};
 $(document).ready(function(){
 	$(document).on("cargaCompleta",armarArbol);
 	$(document).on("carga",function(){
@@ -436,6 +454,30 @@ $(document).ready(function(){
   $("#sel_mun").selectmenu({width:200,change:function(event,ui){
     $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro mun">'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
+  $('#descargar').click(function(e){
+    var svg=$('#treeShow svg');
+    svg.attr({title:"svg_title",xmlns:"http://www.w3.org/2000/svg","xmlns:svg":"http://www.w3.org/2000/svg"});
+    svg.prepend("<defs><style>.ruta{fill:none;stroke: black;stroke-width: 0.5px;}.entidad{cursor: pointer;}.entidad text{font-family: 'Roboto', sans-serif;font-size: 25px;}.entidad.prof0 circle{fill: #0a2342;}.entidad.prof1 circle{fill: #f46197;}.entidad.prof2 circle{fill: #FF8C00;}.entidad.prof3 circle{fill: #2CA58D;}.entidad.prof4 circle{fill: #36558F;}.entidad.prof5 circle{fill: #D4E4BC;}.entidad.prof6 circle{fill: #48233C;}.entidad.prof7 circle{fill: #D4E4BC;}");
+    var text=$('#treeShow').html();
+    var div=$('<div>');
+    div.append(text);
+    var textNodes=div.find('text');
+    textNodes.each(function(){
+      var change=$(this).text().toHtmlEntities();
+      $(this).text(change);
+    });
+    svg.find("defs").eq(0).remove();
+    text=div.html();
+    text=text.replace(/&amp;/g,"&");
+    text=btoa(text);
+    $(e.target).attr({"href-lang":"image/svg+xml","href":"data:image/svg+xml;base64,\n"+text});
+    if(!confirm("Quieres descargar")){
+      e.preventDefault();
+    }
+  });
+  $('#expandir').click(function(){
+    expand(root);
+  });
 });
 $(window).resize(function(){
   w=+$('#treeShow').width();
