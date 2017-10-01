@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Entidades - Visualización de entidades Públicas</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/jquery.ui.position.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -103,9 +103,11 @@
 		<label for="coin">Coincidir filtros</label><input id="coin" name="fcoin" type="checkbox">
 		<div class="filtros"></div>
 		<input type="hidden" name="coin">
-		<input type="submit" value="Crear vista" style="display: block;">
+		<a href="javascript:$('#filtros').submit();" class="action-btn">Crear vista</a>
+		<a href="#" id="descargar" class="action-btn" download="Vista.svg">Descarga</a>
 	</form>
-	<div style="background: white;" id="treeShow"></div>
+	<div style="background: white;" id="treeShow">
+	</div>
 	</div>
 	<script>
 		//Listado de ramas del poder público
