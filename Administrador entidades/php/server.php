@@ -12,7 +12,7 @@ $sCon="mysql:host=$host;dbname=$dbname;";
 
 try {
 
-	$db=new PDO($sCon,$user,$pass,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$db=new PDO($sCon,$user,$pass,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT));
 
 } catch (PDOException $e) {
 

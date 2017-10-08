@@ -42,41 +42,20 @@
         <section class="entidades_principal">
             <div class="content_slider">
                 <ul class="slider_principal">
+<?php include 'Administrador entidades/php/server.php';
+$s=$db->prepare("SELECT * FROM destacadas");
+if($s->execute()){
+    while($ar=$s->fetch(PDO::FETCH_ASSOC)){
+        $entidad=(object)$ar; ?>
                     <li>
-                        <figure style="background:url(images/portada.jpg);"></figure>
+                        <figure style="background:url(<?=$entidad->img?>);"></figure>
                         <div>
-                            <p>Nombre entidad #1</p>
+                            <p><a href="entidad.php?ent=<?=$entidad->id?>"><?=$entidad->nom?></a></p>
                         </div>
                         <span class="overlay"></span>
                     </li>
-                    <li>
-                        <figure style="background:url(images/portada.jpg);"></figure>
-                        <div>
-                            <p>Nombre entidad #2</p>
-                        </div>
-                        <span class="overlay"></span>
-                    </li>
-                    <li>
-                        <figure style="background:url(images/portada.jpg);"></figure>
-                        <div>
-                            <p>Nombre entidad #3</p>
-                        </div>
-                        <span class="overlay"></span>
-                    </li>
-                    <li>
-                        <figure style="background:url(images/portada.jpg);"></figure>
-                        <div>
-                            <p>Nombre entidad #4</p>
-                        </div>
-                        <span class="overlay"></span>
-                    </li>
-                    <li>
-                        <figure style="background:url(images/portada.jpg);"></figure>
-                        <div>
-                            <p>Nombre entidad #5</p>
-                        </div>
-                        <span class="overlay"></span>
-                    </li>
+<?php }
+} ?>
                 </ul>
             </div>
         </section>

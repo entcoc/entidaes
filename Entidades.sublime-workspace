@@ -4,85 +4,60 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
-				"che",
-				"checked"
-			],
-			[
-				"lat",
-				"latlng"
-=======
-				"par",
-				"par_ent"
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-			],
-			[
 				"en",
-				"entidad"
+				"en"
 			],
 			[
-				"ent",
-				"entds"
+				"ID_En",
+				"id_ent"
 			],
 			[
-				"exp",
-				"expand"
-			],
-			[
-				"html",
-				"htmlEntities"
-			],
-			[
-				"htm",
-				"htmlEntities"
-			],
-			[
-				"st",
-				"style"
-			],
-			[
-				"u",
-				"url()"
-			],
-			[
-				"ba",
-				"background"
-			],
-			[
-				"mar",
-				"margin-top"
-			],
-			[
-				"margin",
-				"margin-top"
-			],
-			[
-				"fle",
-				"flex-start"
-			],
-			[
-				"array_m",
-				"array_merge"
+				"vis",
+				"vistas"
 			],
 			[
 				"enti",
 				"entidad"
 			],
 			[
-				"marg",
+				"IN",
+				"insertValues"
+			],
+			[
+				"che",
+				"checked"
+			],
+			[
+				"lat",
+				"latlng"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"m",
+				"myId"
+			],
+			[
+				"s",
+				"search"
+			],
+			[
+				"entida",
+				"entidades"
+			],
+			[
+				"circ",
+				"circHover"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"margi",
 				"margin"
-			],
-			[
-				"list",
-				"list-style"
-			],
-			[
-				"des",
-				"descripcion"
-			],
-			[
-				"fge",
-				"fgetcsv"
 			],
 			[
 				"fil",
@@ -91,6 +66,10 @@
 			[
 				"cur",
 				"cursor"
+			],
+			[
+				"fle",
+				"flex-wrap"
 			],
 			[
 				"val",
@@ -145,16 +124,16 @@
 				"transition"
 			],
 			[
-				"entida",
-				"entidad"
-			],
-			[
 				"se",
 				"select"
 			],
 			[
 				"ar",
 				"armarArbol"
+			],
+			[
+				"des",
+				"descendants"
 			],
 			[
 				"zoo",
@@ -175,10 +154,6 @@
 			[
 				"lo",
 				"log"
-			],
-			[
-				"s",
-				"scale"
 			],
 			[
 				"cen",
@@ -223,6 +198,10 @@
 			[
 				"tr",
 				"trigger"
+			],
+			[
+				"htm",
+				"htmlentities"
 			],
 			[
 				"sto",
@@ -313,10 +292,6 @@
 				"indexOf"
 			],
 			[
-				"bor",
-				"border-radius"
-			],
-			[
 				"op",
 				"opacity"
 			],
@@ -353,10 +328,6 @@
 				"print_r"
 			],
 			[
-				"js",
-				"json_encode"
-			],
-			[
 				"z",
 				"z-index"
 			],
@@ -371,6 +342,10 @@
 			[
 				"flex-",
 				"flex-wrap"
+			],
+			[
+				"par",
+				"partes"
 			],
 			[
 				"min",
@@ -489,17 +464,12 @@
 				"pagecontainer"
 			],
 			[
-<<<<<<< HEAD
 				"marg",
 				"margin-right"
 			],
 			[
 				"margin",
 				"margin-left"
-=======
-				"che",
-				"check"
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
 			],
 			[
 				"ui-bt",
@@ -522,6 +492,10 @@
 				"text-align"
 			],
 			[
+				"mar",
+				"margin"
+			],
+			[
 				"ingre",
 				"ingredientes"
 			],
@@ -532,76 +506,34 @@
 			[
 				"wri",
 				"writeAllMemory"
+			],
+			[
+				"uin",
+				"uint8_t"
+			],
+			[
+				"uint",
+				"uint32_t"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 3506,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "<?php include 'Administrador entidades/php/server.php';\ninclude 'PHP/functions.php';\n$s=$db->prepare(\"CALL getEntidad(?)\");\nif($s->execute(array($_GET['ent']))){\n\t$row = $s->fetchAll(PDO::FETCH_ASSOC);\n\t$entidad=(object)$row[0];\n\t$s->closeCursor();\n\t$asc=$db->prepare(\"SELECT id_ent as id, nom_ent as nom, par_ent FROM entidad WHERE id_ent=? LIMIT 1\");\n\t$entas=array();\n\t$entas=ascendientes($entas,$asc,$entidad->par,1,false);\n\t$ds=$db->prepare(\"SELECT id_ent as id, nom_ent as nom FROM entidad WHERE par_ent=? ORDER BY RAND() LIMIT 3\");\n\t$entds=descendientes(array(),$ds,$_GET['ent'],1,1);\n\tarray_\n}\n?>\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title><?=$entidad->nom?></title>\n\t<link href=\"https://fonts.googleapis.com/css?family=Open+Sans|Roboto\" rel=\"stylesheet\">\n    <link rel=\"stylesheet\" href=\"css/estilos.css\">\n    <link rel=\"icon\" href=\"images/favicon.ico\">\n</head>\n<body>\n\t<header>\n\t\t<a class=\"nav-logo\" href=\"/\">\n\t\t\t<img src=\"images/Logo.svg\" alt=\"\" height=\"100\" width=\"auto\">\n\t\t</a>\n\t\t<div class=\"header-right\">\n\t\t\t<nav>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a href=\"/\">Inicio</a></li>\n\t\t\t\t\t<li><a href=\"entidades.php\" class=\"is-active\">Entidades</a></li>\n\t\t\t\t\t<li><a href=\"#\">Manual de Uso</a></li>\n\t\t\t\t\t<li><a href=\"#\">Acerca de</a></li>\n\t\t\t\t</ul>\n\t\t\t</nav>\n\t\t\t<form action=\"entidades.php\" method=\"post\">\n\t\t\t\t<input name=\"search\" type=\"text\" placeholder=\"Buscar...\" class=\"button red\">\n\t\t\t</form>\n\t\t</div>\n\t</header>\n\t<section class=\"entidad\">\n\t\t<h1><?=$entidad->nom?></h1>\n\t\t<div class=\"datos\">\n\t\t\t<div class=\"datos-col\">\n\t\t\t\t<img src=\"<?=$entidad->img?>\" alt=\"<?=$entidad->nom?>\" class=\"img_ent\">\n\t\t\t\t<p class=\"des_ent\"><?=$entidad->des?></p>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Jerarquía hacia arriba</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entas[0]->id?>\"><?=$entas[0]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entas[1]->id?>\"><?=$entas[1]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entas[2]->id?>\"><?=$entas[2]->nom?></a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Jerarquía hacia abajo</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entds[0]->id?>\"><?=$entds[0]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entds[1]->id?>\"><?=$entds[1]->nom?></a></li>\n\t\t\t\t\t\t<li><a href=\"?ent=<?=$entds[2]->id?>\"><?=$entds[2]->nom?></a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"datos-col\">\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Tipo de entidad</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><strong>Rama: </strong><?=$entidad->ram?></li>\n\t\t\t\t\t\t<li><strong>Caracter: </strong><?=$entidad->car?></li>\n\t\t\t\t\t\t<li><strong>Nivel: </strong><?=$entidad->niv?></li>\n\t\t\t\t\t\t<li><strong>Orden: </strong><?=$entidad->ord?></li>\n\t\t\t\t\t\t<li><strong>Suborden: </strong><?=$entidad->subord?></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Información General</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><strong><?=$entidad->tdoc?>: </strong><?=$entidad->doc?></li>\n\t\t\t\t\t\t<li><strong>Sigla: </strong><?=$entidad->sig?></li>\n\t\t\t\t\t\t<li><strong>Web: </strong><a href=\"<?=$entidad->web?>\" target=\"_blank\"><?=$entidad->web?></a></li>\n\t\t\t\t\t\t<li><strong>Representante: </strong><?=$entidad->rep?></li>\n\t\t\t\t\t\t<li><strong>Telefono 1: </strong><a href=\"tel:<?=$entidad->tel1?>\"><?=$entidad->tel1?></a></li>\n\t\t\t\t\t\t<li><strong>Telefono 2: </strong><a href=\"tel:<?=$entidad->tel2?>\"><?=$entidad->tel2?></a></li>\n\t\t\t\t\t\t<li><strong>Telefono 3: </strong><a href=\"tel:<?=$entidad->tel3?>\"><?=$entidad->tel3?></a></li>\n\t\t\t\t\t\t<li><strong>Fax: </strong><?=$entidad->fax?></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"info\">\n\t\t\t\t\t<h2>Ubicación</h2>\n\t\t\t\t\t<ul class=\"datos-list\">\n\t\t\t\t\t\t<li><strong>Departamento: </strong><?=$entidad->dep?></li>\n\t\t\t\t\t\t<li><strong>Municipio: </strong><?=$entidad->mun?></li>\n\t\t\t\t\t\t<li><strong>Direccion: </strong><?=$entidad->dir?></li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t<div id=\"map\"></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</section>\n\t<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\n\t<script type=\"text/javascript\">\n\t\tfunction initMap(){\n\t\t\tfunction inicializar(lat,lng) {\n\t\t\t\tvar ubicacion=new google.maps.LatLng(lat,lng);\n\t\t\t\tvar map = new google.maps.Map(document.getElementById(\"map\"),{center:ubicacion,zoom:20});\n\t\t\t\tfunction informacion(ubicacion, descripcion,map) {\n\t\t\t\t\tvar marca = new google.maps.Marker({\n\t\t\t\t\t\tposition: ubicacion,\n\t\t\t\t\t\tmap: map\n\t\t\t\t\t});\n\t\t\t\t\tvar infoWindow=new google.maps.InfoWindow({content:descripcion});\n\t\t\t\t\tmarca.addListener('click',function(){\n\t\t\t\t\t\tinfoWindow.open(map,marca);\n\t\t\t\t\t});\n\t\t\t\t\treturn marca;\n\t\t\t\t}\n\t\t\t\tvar descripcion = '<b><?=$entidad->nom?></b><br/><?=$entidad->dir?><br />';\n\t\t\t\tvar marca = informacion(ubicacion, descripcion,map); \n\t\t\t}\n<? if($entidad->lat!=\"\"){ ?>\n\t\t\tinicializar(<?=$entidad->lat?>,<?=$entidad->lng?>);\n<? }else{ ?>\n\t\t\tfunction codeAddress() {\n\t\t\t\tvar geocoder = new google.maps.Geocoder();\n\t\t\t\tvar nombre=$('<p>').html(\"<?=$entidad->nom?>\").text();\n\t\t\t\tvar address = nombre;\n\t\t\t\tgeocoder.geocode( { 'address': address}, function(results, status) {\n\t\t\t\t\tif (status == 'OK') {\n\t\t\t\t\t\tvar loc=results[0].geometry.location;\n\t\t\t\t\t\tinicializar(loc.lat(),loc.lng());\n\t\t\t\t\t\tvar data={ent:\"<?=$entidad->nom?>\",lat:loc.lat(),lng:loc.lng()};\n\t\t\t\t\t\t$.post(\"latlng.php\",data,function(d){\n\t\t\t\t\t\t\tconsole.log(d);\n\t\t\t\t\t\t});\n\t\t\t\t\t} else {\n\t\t\t\t\t\tconsole.log(\"no encontrado\");\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}\n\t\t\tcodeAddress();\n\t\t<? } ?>\n\t\t}\n\t\t</script>\n\t<!-- <script src=\"http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyAjvryudz2XTVjean_g4BQDdeT0O3J-cuU\" type=\"text/javascript\"></script> -->\n\t<script async defer\n    src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAjvryudz2XTVjean_g4BQDdeT0O3J-cuU&callback=initMap\">\n    </script>\n\t</body>\n\t</html>",
 			"file": "entidad.php",
-			"file_size": 5855,
-			"file_write_time": 131462956308193963,
 			"settings":
 			{
-				"buffer_size": 5709,
+				"buffer_size": 6267,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Administrador entidades/cuenta_cdmon",
+			"file": "index.php",
 			"settings":
 			{
-				"buffer_size": 242,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "PHP/functions.php",
-			"settings":
-			{
-				"buffer_size": 887,
+				"buffer_size": 2545,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "entidades.php",
-			"settings":
-			{
-<<<<<<< HEAD
-				"buffer_size": 5209,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Administrador entidades/php/server.php",
-			"settings":
-			{
-				"buffer_size": 295,
-=======
-				"buffer_size": 5368,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "carga_entidades.php",
-			"settings":
-			{
-				"buffer_size": 3062,
 				"line_ending": "Windows"
 			}
 		},
@@ -615,89 +547,58 @@
 			}
 		},
 		{
-			"file": "/C/Users/jim_a/Downloads/Vista (2).svg",
+			"contents": "Searching 55 files for \"<? \"\n\nC:\\Users\\familia\\Documents\\GitHub\\entidaes\\entidad.php:\n  133  \t\t\t\tvar marca = informacion(ubicacion, descripcion,map); \n  134  \t\t\t}\n  135: <? if($entidad->lat!=\"\"){ ?>\n  136  \t\t\tinicializar(<?=$entidad->lat?>,<?=$entidad->lng?>);\n  137: <? }else{ ?>\n  138  \t\t\tfunction codeAddress() {\n  139  \t\t\t\tvar geocoder = new google.maps.Geocoder();\n  ...\n  154  \t\t\t}\n  155  \t\t\tcodeAddress();\n  156: \t\t<? } ?>\n  157  \t\t}\n  158  \t\t</script>\n\n3 matches in 1 file\n",
 			"settings":
 			{
-				"buffer_size": 380575,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 52 files for \"var root\"\n\nC:\\Users\\jim_a\\Documents\\GitHub\\entidaes\\js\\variables.js:\n    6  var tree;\n    7  //Nodos del árbol\n    8: var root;\n    9  //Ancho y alto del svg a dibujar\n   10  var w=0,h=0;\n\n1 match in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 231,
+				"buffer_size": 481,
 				"line_ending": "Windows",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-<<<<<<< HEAD
-			"contents": "Searching 53 files for \"edad1\" (regex)\n\nC:\\Users\\familia\\Desktop\\arte-ideal.php:\n   43  \t\t\t\t<label class=\"gCR\">\n   44  \t\t\t\t\t<?=$edad[$i]['range_age']?>\n   45: \t\t\t\t\t<input class=\"radio1\" type=\"radio\" name=\"edad\" id=\"edad1\" value=\"20 a 30\"><span class=\"icoR\"></span>\n   46  \t\t\t\t</label>\n   47  \t\t\t\t<? } ?>\n\n1 match in 1 file\n\n\nSearching 54 files for \"formArteIdeal\" (regex)\n\nC:\\Users\\familia\\Desktop\\arte-ideal.php:\n   14  \t</div>\n   15  \t<div class=\"contFancy gForm\">\n   16: \t\t<form id=\"formArteIdeal\" method=\"post\">\n   17  \t\t\t<h2 class=\"titH\">Tu obra de arte ideal</h2>\n   18  \t\t\t<div class=\"intro\">\n\n<untitled 49>:\n   17  \t</div>\n   18  \t<div class=\"contFancy gForm\">\n   19: \t\t<form id=\"formArteIdeal\" method=\"post\">\n   20  \t\t\t<h2 class=\"titH\">Tu obra de arte ideal</h2>\n   21  \t\t\t<div class=\"intro\">\n\n2 matches across 2 files\n",
+			"file": "Administrador entidades/php/subircsv.php",
 			"settings":
 			{
-				"buffer_size": 828,
+				"buffer_size": 2275,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Administrador entidades/php/server.php",
+			"settings":
+			{
+				"buffer_size": 292,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/familia/Desktop/talento digital/Cocrealab/Entidades con formato por comas UTF-8.csv",
+			"settings":
+			{
+				"buffer_size": 459928,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Administrador entidades/subir.html",
+			"settings":
+			{
+				"buffer_size": 361,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "DELETE FROM entidad WHERE id_ent>5;\nALTER TABLE `entidad` auto_increment = 6;",
+			"settings":
+			{
+				"buffer_size": 77,
 				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "/C/Users/familia/Documents/Visual Studio 2013/Projects/Simulacion2/Simulacion2/Particula.cpp",
-			"settings":
-			{
-				"buffer_size": 1247,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Latitud: | Longitud: \nLatitud: 4.645254 | Longitud: -74.102664\nLatitud: 4.64315 | Longitud: -74.097448\nLatitud: | Longitud: \nLatitud: 4.647127 | Longitud: -74.096941\nLatitud: 4.697979 | Longitud: -74.140572\nLatitud: 4.649142 | Longitud: -74.061988\nLatitud: 4.681724 | Longitud: -74.046235\nLatitud: 4.632411 | Longitud: -74.116538\nLatitud: 8.663345 | Longitud: -75.134635\nLatitud: 4.632411 | Longitud: -74.116538\nLatitud: 4.680806 | Longitud: -74.062489\nLatitud: 4.591611 | Longitud: -74.088864\nLatitud: 4.659877 | Longitud: -74.103969\nLatitud: 4.607033 | Longitud: -74.083473\nLatitud: 4.611292 | Longitud: -74.071387\nLatitud: 4.621608 | Longitud: -74.080432\nLatitud: 4.588903 | Longitud: -74.084306\nLatitud: 4.641219 | Longitud: -74.095076\nLatitud: 4.650075 | Longitud: -74.061654\nLatitud: 4.370492 | Longitud: -74.674075\nLatitud: 6.697625 | Longitud: -73.511413\nLatitud: 4.680839 | Longitud: -74.117117\nLatitud: 7.117751 | Longitud: -73.126656\nLatitud: 4.677683 | Longitud: -74.053735\nLatitud: 4.638445 | Longitud: -74.092294\nLatitud: 4.67998 | Longitud: -74.03897\nLatitud: 4.644911 | Longitud: -74.061205\nLatitud: 4.599923 | Longitud: -74.074472\nLatitud: 11.002291 | Longitud: -74.800386\nLatitud: 4.679956 | Longitud: -74.122556\nLatitud: 4.659356 | Longitud: -74.108205\nLatitud: | Longitud: \nLatitud: 4.657024 | Longitud: -74.057569\nLatitud: 4.657538 | Longitud: -74.107258\nLatitud: 4.64347 | Longitud: -74.063334\nLatitud: 4.632595 | Longitud: -74.065912\nLatitud: 4.603443 | Longitud: -74.075559\nLatitud: 4.596443 | Longitud: -74.074578\nLatitud: 4.646535 | Longitud: -74.09848\nLatitud: 4.646711 | Longitud: -74.098592\nLatitud: 4.645017 | Longitud: -74.100565\nLatitud: 7.086607 | Longitud: -70.759018\nLatitud: 4.624117 | Longitud: -74.067836\nLatitud: 2.936582 | Longitud: -75.310493\nLatitud: 1.636713 | Longitud: -75.609748\nLatitud: 4.143732 | Longitud: -73.646691\nLatitud: -4.213903 | Longitud: -69.93755\nLatitud: | Longitud: \nLatitud: 5.688562 | Longitud: -76.65798\nLatitud: 8.767383 | Longitud: -75.875054\nLatitud: 4.660157 | Longitud: -74.054163\nLatitud: 1.22793 | Longitud: -77.281685\nLatitud: 2.445289 | Longitud: -76.60568\nLatitud: 4.693724 | Longitud: -74.033719\nLatitud: 11.00007 | Longitud: -74.801504\nLatitud: 5.056669 | Longitud: -75.485875\nLatitud: 4.68101 | Longitud: -74.042156\nLatitud: 6.18832 | Longitud: -75.558746\nLatitud: 4.646663 | Longitud: -74.095356\nLatitud: 4.584744 | Longitud: -74.139976\nLatitud: 4.658384 | Longitud: -74.053266\nLatitud: 4.592432 | Longitud: -74.08825\nLatitud: 4.589274 | Longitud: -74.110724\nLatitud: 4.614067 | Longitud: -74.071694\nLatitud: 4.680175 | Longitud: -74.043179\nLatitud: 4.67488 | Longitud: -74.065291\nLatitud: | Longitud: \nLatitud: 4.615866 | Longitud: -74.071272\nLatitud: | Longitud: \nLatitud: 4.648467 | Longitud: -74.10496\nLatitud: 4.635959 | Longitud: -74.112329\nLatitud: | Longitud: \nLatitud: 2.918493 | Longitud: -75.285357\nLatitud: 4.459271 | Longitud: -75.268387\nLatitud: 4.675269 | Longitud: -74.11786\nLatitud: | Longitud: \nLatitud: | Longitud: \nLatitud: 4.654391 | Longitud: -74.055318\nLatitud: 4.627795 | Longitud: -74.067219\nLatitud: 4.602306 | Longitud: -74.074359\nLatitud: 4.680416 | Longitud: -74.047029\nLatitud: 7.929468 | Longitud: -72.504999\nLatitud: 4.6025 | Longitud: -74.072461\nLatitud: 4.695368 | Longitud: -74.204208\nLatitud: 4.628698 | Longitud: -74.159608\n\nLatitud: 6.220817 | Longitud: -75.569816\nLatitud: 5.054721 | Longitud: -75.493711\nLatitud: 5.810424 | Longitud: -73.029292\nLatitud: | Longitud: \nLatitud: | Longitud: \nLatitud: | Longitud: \nLatitud: | Longitud: \nLatitud: | Longitud: \nLatitud: 4.615999 | Longitud: -74.069619\nLatitud: 4.623365 | Longitud: -74.097064\nLatitud: 4.646362 | Longitud: -74.095451\nLatitud: 4.6025 | Longitud: -74.072461\nLatitud: 4.657735 | Longitud: -74.059782\nLatitud: 4.615995 | Longitud: -74.070348\nLatitud: 4.625022 | Longitud: -74.067085\nLatitud: 4.60808 | Longitud: -74.073281\nLatitud: 4.616635 | Longitud: -74.073124\nLatitud: 5.699253 | Longitud: -76.656665\nLatitud: 11.237774 | Longitud: -74.214747\nLatitud: 4.625022 | Longitud: -74.067085\nLatitud: | Longitud: \nLatitud: 4.659996 | Longitud: -74.059052\nLatitud: 4.616133 | Longitud: -74.071326\nLatitud: 4.657178 | Longitud: -74.106974\nLatitud: 4.616821 | Longitud: -74.071257\nLatitud: | Longitud: \nLatitud: 4.614909 | Longitud: -74.071689\nLatitud: 4.643118 | Longitud: -74.09238\nLatitud: 4.615866 | Longitud: -74.071272\nLatitud: 4.614547 | Longitud: -74.07068\nLatitud: 4.64341 | Longitud: -74.094944\nLatitud: 4.592964 | Longitud: -74.07696\nLatitud: 4.596565 | Longitud: -74.070726\nLatitud: 4.596081 | Longitud: -74.073861\nLatitud: 4.647575 | Longitud: -74.097935\nLatitud: 4.643626 | Longitud: -74.095278\nLatitud: 4.631177 | Longitud: -74.099311\nLatitud: 4.62865 | Longitud: -74.10549\nLatitud: 4.644449 | Longitud: -74.095985\nLatitud: | Longitud: \nLatitud: 4.645067 | Longitud: -74.092694\nLatitud: 4.614285 | Longitud: -74.070796\nLatitud: 4.644449 | Longitud: -74.095985\nLatitud: 4.645143 | Longitud: 74.095132\nLatitud: 4.614438 | Longitud: -74.070267\nLatitud: 4.659552 | Longitud: -74.108361\nLatitud: 4.644028 | Longitud: -74.094492\nLatitud: 4.639521 | Longitud: -74.067201\nLatitud: 4.653005 | Longitud: -74.098611\nLatitud: 4.605822 | Longitud: -74.082175\nLatitud: 4.643584 | Longitud: -74.063621\nLatitud: 4.660976 | Longitud: -74.10775\nLatitud: 4.602468 | Longitud: -74.068616\nLatitud: 10.891639 | Longitud: -72.83812\nLatitud: 12.593376 | Longitud: -81.705108\nLatitud: 4.622783 | Longitud: -74.068001\nLatitud: 4.666311 | Longitud: -74.05985\nLatitud: 3.439442 | Longitud: -76.53708\nLatitud: 4.147177 | Longitud: -74.892234\nLatitud: 4.679161 | Longitud: -74.052088\nLatitud: 4.676805 | Longitud: -74.046293\nLatitud: 4.649329 | Longitud: -74.062953\nLatitud: 4.655691 | Longitud: -74.055788\nLatitud: 4.656527 | Longitud: -74.057695\nLatitud: 4.654391 | Longitud: -74.055318\nLatitud: 4.688765 | Longitud: -74.051829\nLatitud: 4.619651 | Longitud: -74.069121\nLatitud: 4.622809 | Longitud: -74.066602\nLatitud: 4.643749 | Longitud: -74.063677\nLatitud: 4.682561 | Longitud: -74.057332\nLatitud: 4.677828 | Longitud: -74.04951\nLatitud: 4.617423 | Longitud: -74.068036\nLatitud: 4.593933 | Longitud: -74.074775\nLatitud: 4.681072 | Longitud: -74.050234\nLatitud: 4.594207 | Longitud: -74.078879\nLatitud: 4.643611 | Longitud: -74.114318\nLatitud: 4.617423 | Longitud: -74.068036\nLatitud: 4.594207 | Longitud: -74.078879\nLatitud: 4.600933 | Longitud: -74.073901\nLatitud: 4.683619 | Longitud: -74.119032\nLatitud: 4.64422 | Longitud: -74.102235\nLatitud: 4.6831 | Longitud: -74.120877\nLatitud: 4.612081 | Longitud: -74.06973\nLatitud: 4.612898 | Longitud: -74.071592\nLatitud: 4.6701 | Longitud: -74.057303\nLatitud: | Longitud: \nLatitud: 4.647524 | Longitud: -74.063867\nLatitud: 4.622278 | Longitud: -74.065755\nLatitud: 4.671367 | Longitud: -74.08976\nLatitud: 4.602388 | Longitud: -74.07253\nLatitud: 4.685853 | Longitud: -74.130654",
-			"settings":
-			{
-				"buffer_size": 6880,
-				"line_ending": "Windows",
-				"name": "Latitud: | Longitud:"
-			}
-		},
-		{
-			"file": "Administrador entidades/php/entidad.php",
-			"settings":
-			{
-				"buffer_size": 861,
-=======
-			"file": "js/variables.js",
-			"settings":
-			{
-				"buffer_size": 327,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/jim_a/Desktop/Sin título-2.svg",
-			"settings":
-			{
-				"buffer_size": 268,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "css/estilos.css",
-			"settings":
-			{
-				"buffer_size": 7298,
-				"encoding": "UTF-8",
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-				"line_ending": "Windows"
+				"name": "DELETE FROM entidad WHERE id_ent>5;"
 			}
 		}
 	],
@@ -741,16 +642,26 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/jim_a/Documents/GitHub/entidaes",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/css",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/images",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/js",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP"
+		"/C/Users/familia/Documents/GitHub/entidaes",
+		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades",
+		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/js",
+		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/php",
+		"/C/Users/familia/Documents/GitHub/entidaes/Base de datos",
+		"/C/Users/familia/Documents/GitHub/entidaes/js",
+		"/C/Users/familia/Documents/GitHub/entidaes/PHP"
 	],
 	"file_history":
 	[
-<<<<<<< HEAD
+		"/C/Users/familia/Downloads/Papá/id2905317_visent.sql",
+		"/C/Users/familia/Desktop/talento digital/Cocrealab/Entidades con formato por comas.csv",
+		"/C/Users/familia/Desktop/talento digital/Cocrealab/Entidades con formato MS-DOS.csv",
+		"/C/Users/familia/Desktop/talento digital/Cocrealab/Entidades con formato MAC.csv",
+		"/C/Users/familia/Documents/GitHub/entidaes/entidad.php",
+		"/C/Users/familia/Documents/GitHub/entidaes/entidades.php",
+		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/php/server.php",
+		"/C/Users/familia/Documents/GitHub/entidaes/latlng.php",
+		"/C/Users/familia/Documents/Visual Studio 2013/Projects/Simulacion2/Simulacion2/Particula.cpp",
+		"/C/Users/familia/Downloads/Papá/Google maps Ejemplo 2.html",
 		"/C/Users/familia/Desktop/inmisiones3.csv",
 		"/C/Users/familia/Desktop/inmisiones2.csv",
 		"/C/Users/familia/Desktop/INMISIONES_MS_DOS.csv",
@@ -762,11 +673,9 @@
 		"/C/Users/familia/Documents/GitHub/entidaes/Administrador entidades/php/entidad.php",
 		"/C/Users/familia/Documents/GitHub/entidaes/js/functions.js",
 		"/C/Users/familia/Documents/GitHub/entidaes/js/variables.js",
-		"/C/Users/familia/Documents/GitHub/entidaes/entidades.php",
 		"/C/Users/familia/Documents/GitHub/entidaes/css/estilos.css",
 		"/C/Users/familia/Documents/GitHub/entidaes/carga_entidades.php",
 		"/C/Users/familia/Documents/GitHub/entidaes/index.html",
-		"/C/Users/familia/Documents/GitHub/entidaes/entidad.php",
 		"/C/Users/familia/Downloads/Papá/vectorpaint (1).svg",
 		"/C/Users/familia/Downloads/Papá/leo.php",
 		"/C/Users/familia/Downloads/Papá/vectorpaint.svg",
@@ -774,32 +683,10 @@
 		"/C/Users/familia/Documents/GitHub/entidaes/js/interface.js",
 		"/C/Users/familia/Documents/GitHub/entidaes/css/jquery.bxslider.min.css",
 		"/C/Users/familia/Documents/GitHub/entidaes/images/Logo0.1.svg",
-=======
-		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/entidades.php",
-		"/C/Users/jim_a/Downloads/cinescuela/js/interface.js",
-		"/C/Users/jim_a/Downloads/Vista.svg",
-		"/C/Users/jim_a/Downloads/Vista (1).svg",
-		"/C/Users/jim_a/Downloads/Vista (3).svg",
-		"/C/Users/jim_a/Desktop/Sin título-2.svg",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/carga_entidades.php",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/latlng.php",
-		"/C/Users/jim_a/Desktop/Nueva carpeta/index (1).html",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/estilos.css",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/subircsv.php",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/subir.html",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/js/functions.js",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/css/estilos.css",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/index.php",
-		"/C/Users/jim_a/Downloads/index (1).html",
-		"/C/Users/jim_a/AppData/Local/Temp/Rar$DRa0.488/busqueda.lnk",
-		"/C/Users/jim_a/Desktop/idiomas.json",
-		"/C/Users/jim_a/Desktop/CocreaLab/Visualizacion de Entidades Publicas/Alcaldias.csv",
-		"/C/Users/jim_a/Desktop/CocreaLab/Visualizacion de Entidades Publicas/latlng.csv",
-		"/C/Users/jim_a/Desktop/CocreaLab/Visualizacion de Entidades Publicas/flare.csv",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/subircsv.php",
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/functions.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/index2.html",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/css/estilos.css",
+		"/C/Users/jim_a/Documents/GitHub/entidaes/js/functions.js",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/js/variables.js",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php/query.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/js/script.js",
@@ -892,18 +779,15 @@
 		"/C/Users/jim_a/Desktop/d3mmjwi9zSVpra9i.gif.txt",
 		"/C/Users/jim_a/Desktop/Wumpus/wumpus.html",
 		"/C/Users/jim_a/Desktop/ing multimedia 8/IA/Busqueda/IAUMNG-master/js/BusquedasPuzzle.js",
-		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/index.html",
-		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/js/index.css",
-		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/js/index.js",
-		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/index2.html"
+		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/index.html"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
-		"height": 96.0,
+		"height": 104.0,
 		"where_history":
 		[
 			""
@@ -914,7 +798,73 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-<<<<<<< HEAD
+			"id_ent",
+			"<? ",
+			"organismos de ",
+			"-3,",
+			"-2,",
+			"-1,",
+			"argelia",
+			"ARGELIA",
+			"ALBANIA-2",
+			"ALBANIA-1",
+			"FLORENCIA-1",
+			"CAUCA,SOTARA,",
+			"VAUPÉS,MITÚ",
+			"Mitú",
+			"MITÚ",
+			"Mitú",
+			"MITÚ",
+			"RISARALDA,DOSQUEBRADAS",
+			"ANTIOQUIA,ITAGUI",
+			",,Inclusión Social y Reconciliación",
+			"Inclusión Social y Reconciliación",
+			",,Inteligencia Estratégica y Contrainteligencia,",
+			"PROVIDENCIA-1",
+			"ARCHIPIÉLAGO DE SAN ANDRÉS, PROVIDENCIA Y SANTA CATALINA",
+			"ARMENIA",
+			"ARMENIA-1",
+			"ARMENIA-",
+			"ARMENIA",
+			",,Salud y Proteción Social,",
+			",,Vivienda, Ciudad y Territorio",
+			",Vivienda Ciudad y Territorio,",
+			"vivienda ciu",
+			"vivienda, ciu",
+			"Procuradur",
+			" la Contraloría General de la República busca contribuir al bienestar de los funcionarios y sus familias con servicios integrales,",
+			"'%?%'",
+			"WHERE",
+			"'%?%'",
+			"-58.212086",
+			"Latitud: ",
+			"-530.943856",
+			" | Longitud: ",
+			"\t",
+			"^\\t\\n",
+			"^\\t",
+			" | ",
+			"^\\n",
+			"Latitud:",
+			"FFFLatitud:",
+			"Longitud:",
+			"FFFLongitud:",
+			" | ",
+			"Longitud:",
+			"latitud: |",
+			"^\\n",
+			"Longitud:",
+			" | ",
+			" | ",
+			" | ",
+			" | ",
+			"Latitud: | Longitud:",
+			" | L",
+			" | ",
+			"^\\n",
+			"^\\t$",
+			" | L",
+			" | ",
 			"|",
 			" | ",
 			" | Longitud: ",
@@ -967,140 +917,15 @@
 			" | ",
 			" | ",
 			"\t",
-=======
-			"entds",
-			"id?>\"><?=$entas",
-			"update_contentJson",
-			"pintarNodo",
-			"togg",
-			"var root",
-			"root",
-			"armarArbol",
-			"ó",
-			"í",
-			"é",
-			"á",
-			"ó",
-			"\"+\"",
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
 			"\"",
-			"+",
-			".overl",
-			"overlay",
-			"#4A8C2B, #FFFFFF",
-			"lat",
-			"$lat",
-			"Longitud: ",
-			"Latitud: ",
-			" | ",
-			"^$",
+			"\t",
+			"\"",
 			"\t",
 			"Longitud: ",
 			"Latitud: ",
+			"\nLatitud: ",
 			" | ",
-			"\t",
-			"Agencia colombiana para la Reintegración de Personas y Grupos Alzados En Armas",
-			"\\t",
-			"\\$",
-			"; ",
-			" |",
-			"Longitud: ",
-			"Latitud: ",
-			"ram",
-			"addFiltro",
-			"cargarfiltros",
-			"collapse",
-			"data-hid",
-			"isset",
-			"width",
-			"</select>",
-			"name",
-			"li",
-			"button",
-			"-button",
-			"li",
-			"-button",
-			"selectmenu",
-			"li",
-			"#",
-			"sel_ord",
-			"sel_car",
-			"sel_ram",
-<<<<<<< HEAD
-			"#"
-=======
-			"#",
-			"();\n",
-			"toggleChildren",
-			"collapse",
-			"tog",
-			"toog",
-			"entidad",
-			"entidades",
-			"\n$",
-			"add",
-			";\n",
-			"trees",
-			"init",
-			"d[i]",
-			"d[i",
-			"d",
-			"entidades",
-			"id=\"",
-			"_ent",
-			"car",
-			"init",
-			"pag",
-			"dia",
-			"entidades",
-			"trig",
-			"2",
-			"zoomTransform",
-			"\");\n",
-			"console",
-			"milis",
-			"center",
-			"cen",
-			"centr",
-			"tree",
-			"tree+",
-			"tree",
-			"center",
-			"y0",
-			"center",
-			"y0",
-			"svgG",
-			"vis.",
-			"vis",
-			"svgGroup",
-			"vis",
-			"vis =",
-			"vis=",
-			"vis",
-			"dia",
-			"diagonal",
-			"limite",
-			"init",
-			";\n",
-			"totalNodes",
-			"link",
-			"centerNode",
-			"expand",
-			"source",
-			"diagonal",
-			"svgGro",
-			"pan",
-			"svgg",
-			"arbol",
-			"zoomListener",
-			"zoom",
-			"translate(",
-			"transla(",
-			"transla",
-			"click",
-			"links",
-			"$"
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
+			"Departamento"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1108,7 +933,17 @@
 		"regex": false,
 		"replace_history":
 		[
-<<<<<<< HEAD
+			",",
+			"providencia",
+			"san andrés y providencia",
+			"armenia",
+			"\\tLatitud: -58.212086 | Longitud: -530.943856\\n",
+			"\\t\\n",
+			"FFFLatitud: 4.645254 | FFFLongitud: -74.102664\\n",
+			"FFFLatitud: 4.645254 | FFFLongitud: -74.102664",
+			" | ",
+			"FFFLatitud: 4.645254 | Longitud: -74.102664\\n",
+			"FFFLatitud: 4.645254 | Longitud: -74.102664",
 			",",
 			"CVS",
 			"CAM",
@@ -1143,12 +978,6 @@
 			"\\\"",
 			"$1",
 			"\\\"",
-=======
-			"o",
-			"Latitud:  | Longitud: ",
-			";",
-			"",
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
 			"<a target=\"_blank\" href=\"https://www.linkedin",
 			"<a target=\"_blank\"",
 			"images(2).jpg",
@@ -1168,105 +997,30 @@
 	"groups":
 	[
 		{
-<<<<<<< HEAD
-			"selected": 8,
-=======
-			"selected": 3,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3506,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								996,
-								810
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-=======
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 8,
-=======
-					"stack_index": 5,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "entidad.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5709,
+						"buffer_size": 6267,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								598,
-								598
+								124,
+								161
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 9,
-=======
-					"stack_index": 1,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Administrador entidades/cuenta_cdmon",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 242,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1276,141 +1030,39 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "PHP/functions.php",
+					"buffer": 1,
+					"file": "index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 887,
+						"buffer_size": 2545,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								753,
-								753
+								2313,
+								2313
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 60.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "entidades.php",
-					"semi_transient": false,
-					"settings":
-					{
-<<<<<<< HEAD
-						"buffer_size": 5209,
-=======
-						"buffer_size": 5368,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								628,
-								628
-=======
-								1348,
-								1348
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-<<<<<<< HEAD
-=======
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "carga_entidades.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 3062,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1860.0,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-<<<<<<< HEAD
-					"buffer": 3,
-					"file": "Administrador entidades/php/server.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 295,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "latlng.php",
-=======
-					"buffer": 6,
+					"buffer": 2,
 					"file": "js/functions.js",
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 17737,
@@ -1420,8 +1072,8 @@
 						"selection":
 						[
 							[
-								2406,
-								2406
+								5212,
+								5216
 							]
 						],
 						"settings":
@@ -1431,31 +1083,18 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 377.0,
+						"translation.y": 3287.0,
 						"zoom_level": 1.0
 					},
-<<<<<<< HEAD
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 828,
-=======
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/Users/jim_a/Downloads/Vista (2).svg",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 380575,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
+						"buffer_size": 481,
 						"regions":
 						{
 							"match":
@@ -1464,16 +1103,16 @@
 								"regions":
 								[
 									[
-										215,
-										220
+										170,
+										173
 									],
 									[
-										486,
-										499
+										268,
+										271
 									],
 									[
-										688,
-										701
+										422,
+										425
 									]
 								],
 								"scope": ""
@@ -1482,115 +1121,8 @@
 						"selection":
 						[
 							[
-<<<<<<< HEAD
-								325,
-								325
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 220.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/Users/familia/Documents/Visual Studio 2013/Projects/Simulacion2/Simulacion2/Particula.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1247,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								875,
-								880
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 600.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-=======
-								281080,
-								281086
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 49581.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 231,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										142,
-										150
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								147,
-								147
+								274,
+								274
 							]
 						],
 						"settings":
@@ -1608,136 +1140,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-<<<<<<< HEAD
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 4,
+					"file": "Administrador entidades/php/subircsv.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6880,
-=======
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "js/variables.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 327,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
+						"buffer_size": 2275,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-<<<<<<< HEAD
-								493,
-								493
-=======
-								221,
-								221
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"auto_name": "Latitud: | Longitud:",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-=======
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 0,
-=======
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "/C/Users/jim_a/Desktop/Sin título-2.svg",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								255,
-								255
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "css/estilos.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7298,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1817,
-								1817
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5855.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
->>>>>>> 0ab45596609ce00cc78d8cf93546c921597239cc
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Administrador entidades/php/entidad.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 861,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								830,
-								830
+								6,
+								6
 							]
 						],
 						"settings":
@@ -1748,7 +1168,119 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Administrador entidades/php/server.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Users/familia/Desktop/talento digital/Cocrealab/Entidades con formato por comas UTF-8.csv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 459928,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Administrador entidades/subir.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 361,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								256,
+								256
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 77,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								77,
+								77
+							]
+						],
+						"settings":
+						{
+							"auto_name": "DELETE FROM entidad WHERE id_ent>5;",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1793,7 +1325,7 @@
 	"project": "Entidades.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 74.0
 	},
 	"save_all_on_build": true,
 	"select_file":
