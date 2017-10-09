@@ -50,7 +50,7 @@ if($s->execute()){
                     <li>
                         <figure style="background:url(<?=$entidad->img?>);"></figure>
                         <div>
-                            <p><a href="entidad.php?ent=<?=$entidad->id?>"><?=$entidad->nom?></a></p>
+                            <p><a style="text-decoration: none; color: white;" href="entidad.php?ent=<?=$entidad->id?>"><?=$entidad->nom?></a></p>
                         </div>
                         <span class="overlay"></span>
                     </li>
