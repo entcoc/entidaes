@@ -40,7 +40,7 @@
 <?php if($s=$db->query("SELECT nom_ram, id_ram FROM rama")){ $ramas=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ if(!count($ramIDs) || contiene($ramIDs,$ar['id_ram'])) array_push($ramas, $ar); ?>
 			<option value="<?=$ar['id_ram']?>"><?=$ar["nom_ram"]?></option>
-<?	}
+<?php	}
 }
  ?>
 		</select>
@@ -49,7 +49,7 @@
 <?php if($s=$db->query("SELECT nom_car, id_car FROM caracter")){ $carac=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($carac, $ar); ?>
 			<option value="<?=$ar['id_car']?>"><?=$ar["nom_car"]?></option>
-<?	}
+<?php	}
 }
  ?>
 		</select>
@@ -58,7 +58,7 @@
 <?php if($s=$db->query("SELECT nom_niv, id_niv FROM nivel")){ $nivs=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($nivs, $ar); ?>
 			<option value="<?=$ar['id_niv']?>"><?=$ar["nom_niv"]?></option>
-<?	}
+<?php	}
 }
  ?>
 		</select>
@@ -67,7 +67,7 @@
 <?php if($s=$db->query("SELECT nom_ord, id_ord FROM orden")){ $ords=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($ords, $ar); ?>
 			<option value="<?=$ar['id_ord']?>"><?=$ar["nom_ord"]?></option>
-<?	}
+<?php	}
 }
  ?>
 		</select>
@@ -76,7 +76,7 @@
 <?php if($s=$db->query("SELECT nom_subord, id_subord FROM suborden")){ $subords=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($subords, $ar); ?>
 			<option value="<?=$ar['id_subord']?>"><?=$ar["nom_subord"]?></option>
-<?	}
+<?php	}
 }
  ?>
 		</select>
@@ -85,7 +85,7 @@
 <?php if($s=$db->query("SELECT nom_dep, id_dep FROM departamento")){ $deps=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($deps, $ar); ?>
 			<option value="<?=$ar['id_dep']?>"><?=$ar["nom_dep"]?></option>
-<?	}
+<?php	}
 }
  ?>
 		</select>
@@ -94,7 +94,7 @@
 <?php if($s=$db->query("SELECT nom_mun, id_mun FROM municipio")){ $muns=array();
 	while($ar=$s->fetch(PDO::FETCH_ASSOC)){ array_push($muns, $ar) ?>
 			<option value="<?=$ar['id_mun']?>"><?=$ar["nom_mun"]?></option>
-<?	}
+<?php	}
 }
  ?>
 		</select>

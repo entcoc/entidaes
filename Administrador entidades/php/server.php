@@ -1,8 +1,8 @@
 <?php
 $host="localhost";
-$dbname="entidades";
-$user="myentidade";
-$pass="ATN2FW0U";
+$dbname="id2905317_visent";
+$user="id2905317_admin";
+$pass="95100408";
 $sCon="mysql:host=$host;dbname=$dbname;";
 try {
 	$db=new PDO($sCon,$user,$pass,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

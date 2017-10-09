@@ -5,6 +5,7 @@ extract($_POST);
 $query="SELECT id_ent, nom_ent, ram_ent, car_ent, niv_ent, ord_ent, subord_ent, par_ent, dep_ent, mun_ent, tdoc_ent FROM entidad WHERE ";
 $vars=array();
 $def=" ? ";
+$qord=$qsubord=$qdep=$qmun=$qsearch=$qram=$qcar=$qniv="";
 if(isset($coin)&&$coin!=""){
 	$con=$coin? " AND " : " OR ";
 }

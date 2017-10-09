@@ -120,9 +120,9 @@ if($s->execute(array($_GET['ent']))){
 				var descripcion = '<b><?=$entidad->nom?></b><br/><?=$entidad->dir?><br />';
 				var marca = informacion(ubicacion, descripcion,map); 
 			}
-<? if($entidad->lat!=""){ ?>
+<?php if($entidad->lat!=""){ ?>
 			inicializar(<?=$entidad->lat?>,<?=$entidad->lng?>);
-<? }else{ ?>
+<?php }else{ ?>
 			function codeAddress() {
 				var geocoder = new google.maps.Geocoder();
 				var nombre=$('<p>').html("<?=$entidad->nom?>").text();
@@ -141,7 +141,7 @@ if($s->execute(array($_GET['ent']))){
 				});
 			}
 			codeAddress();
-		<? } ?>
+		<?php } ?>
 		}
 		</script>
 	<!-- <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyAjvryudz2XTVjean_g4BQDdeT0O3J-cuU" type="text/javascript"></script> -->
