@@ -4,6 +4,82 @@
 		"selected_items":
 		[
 			[
+				"new",
+				"newValue"
+			],
+			[
+				"confo",
+				"confort"
+			],
+			[
+				"iti",
+				"itinerary"
+			],
+			[
+				"ne",
+				"next_trip"
+			],
+			[
+				"country",
+				"countryID"
+			],
+			[
+				"coun",
+				"countryO"
+			],
+			[
+				"count",
+				"country"
+			],
+			[
+				"city",
+				"cityID"
+			],
+			[
+				"stae",
+				"stateID"
+			],
+			[
+				"isa",
+				"is_array"
+			],
+			[
+				"glo",
+				"global"
+			],
+			[
+				"fu",
+				"fun\tfunction …"
+			],
+			[
+				"str",
+				"strAux"
+			],
+			[
+				"s",
+				"split"
+			],
+			[
+				"row",
+				"rowID"
+			],
+			[
+				"destina",
+				"destination"
+			],
+			[
+				"subc",
+				"subcategorys_destination"
+			],
+			[
+				"re",
+				"RewriteRule"
+			],
+			[
+				"Sta",
+				"static"
+			],
+			[
 				"marg",
 				"margin-bottom"
 			],
@@ -120,10 +196,6 @@
 				"entidades"
 			],
 			[
-				"new",
-				"newHeight"
-			],
-			[
 				"trans",
 				"transform"
 			],
@@ -178,10 +250,6 @@
 			[
 				"lo",
 				"log"
-			],
-			[
-				"s",
-				"scale"
 			],
 			[
 				"cen",
@@ -301,10 +369,6 @@
 			],
 			[
 				"recetas",
-				"recetasRelevantes"
-			],
-			[
-				"re",
 				"recetasRelevantes"
 			],
 			[
@@ -450,98 +514,17 @@
 			[
 				"ce",
 				"cerrada"
-			],
-			[
-				"C",
-				"Costo"
-			],
-			[
-				"ins",
-				"InsertarOrdenadoHeuristica"
-			],
-			[
-				"cola",
-				"Cola"
-			],
-			[
-				"n",
-				"N"
-			],
-			[
-				"pr",
-				"Profundidad"
-			],
-			[
-				"li",
-				"listview"
-			],
-			[
-				"tar",
-				"target"
-			],
-			[
-				"data",
-				"data-role"
-			],
-			[
-				"pagecon",
-				"pagecontainer"
-			],
-			[
-				"che",
-				"check"
-			],
-			[
-				"ui-bt",
-				"ui-btn-inline"
-			],
-			[
-				"bu",
-				"busqueda"
-			],
-			[
-				"bus",
-				"busRecetas"
-			],
-			[
-				"margin-bo",
-				"margin-bottom"
-			],
-			[
-				"ingre",
-				"ingredientes"
-			],
-			[
-				"Crear",
-				"crearReceta"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "entidades.php",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 5366,
+				"buffer_size": 38,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "carga_entidades.php",
-			"settings":
-			{
-				"buffer_size": 3120,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Administrador entidades/php/car.php",
-			"settings":
-			{
-				"buffer_size": 373,
 				"line_ending": "Windows"
 			}
 		},
@@ -549,26 +532,16 @@
 			"file": "Administrador entidades/php/server.php",
 			"settings":
 			{
-				"buffer_size": 284,
+				"buffer_size": 282,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 52 files for \"<? \"\n\nC:\\Users\\jim_a\\Documents\\GitHub\\entidaes\\entidad.php:\n  121  \t\t\t\tvar marca = informacion(ubicacion, descripcion,map); \n  122  \t\t\t}\n  123: <? if($entidad->lat!=\"\"){ ?>\n  124  \t\t\tinicializar(<?=$entidad->lat?>,<?=$entidad->lng?>);\n  125: <? }else{ ?>\n  126  \t\t\tfunction codeAddress() {\n  127  \t\t\t\tvar geocoder = new google.maps.Geocoder();\n  ...\n  142  \t\t\t}\n  143  \t\t\tcodeAddress();\n  144: \t\t<? } ?>\n  145  \t\t}\n  146  \t\t</script>\n\n3 matches in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 479,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
 			}
 		},
 		{
 			"file": "entidad.php",
 			"settings":
 			{
-				"buffer_size": 5731,
+				"buffer_size": 6267,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -616,14 +589,41 @@
 	[
 		"/C/Users/jim_a/Documents/GitHub/entidaes",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/css",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/images",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/js",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP"
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Administrador entidades/php"
 	],
 	"file_history":
 	[
+		"/C/Users/jim_a/Documents/GitHub/entidaes/Entidades.sublime-workspace",
+		"/C/Users/jim_a/Desktop/maloca/js/functions.js",
+		"/C/xampp/htdocs/maloca marckup/maloca/boxes/reservation-form.php",
+		"/C/Users/jim_a/Desktop/maloca/includes/functions.php",
+		"/C/Users/jim_a/Desktop/maloca/includes/countries-states-citys.json",
+		"/C/Users/jim_a/Desktop/maloca/contact.php",
+		"/C/Users/jim_a/Desktop/maloca/send.php",
+		"/C/Users/jim_a/Desktop/q_functions.php",
+		"/C/Users/jim_a/Desktop/maloca/destination.php",
+		"/C/xampp/htdocs/maloca marckup/maloca/single-destination.php",
+		"/C/xampp/htdocs/maloca marckup/maloca/contact.php",
+		"/C/Users/jim_a/Desktop/Countries-States-Cities-database-master/cities.json",
+		"/C/Users/jim_a/Desktop/Countries-States-Cities-database-master/states.json",
+		"/C/Users/jim_a/Desktop/Countries-States-Cities-database-master/countries.json",
+		"/C/Users/jim_a/Downloads/citiesxcountries.json",
+		"/C/Users/jim_a/Desktop/maloca marckup/maloca/contact.php",
+		"/C/Users/jim_a/Desktop/maloca/css/styles.css",
+		"/C/Users/jim_a/Downloads/xy.csv",
+		"/C/Users/jim_a/Desktop/CocreaLab/Visualizacion de Entidades Publicas/entidades 07-06-2017.sql",
+		"/C/Users/jim_a/Desktop/fishHackaton/app_prueba/www/js/functions.js",
+		"/C/Users/jim_a/Desktop/fishHackaton/app_prueba/www/js/index.js",
+		"/C/Users/jim_a/Desktop/fishHackaton/app_prueba/config.xml",
+		"/C/Users/jim_a/Desktop/fishHackaton/app_prueba/platforms/android/platform_www/cordova.js",
+		"/C/Users/jim_a/AppData/Local/Temp/fz3temp-2/head.php",
+		"/C/Users/jim_a/AppData/Local/Temp/fz3temp-2/connections.php",
+		"/C/Users/jim_a/AppData/Local/Temp/fz3temp-2/index.php",
+		"/C/Users/jim_a/Desktop/Python_proy/first.py",
+		"/C/Miniconda3/include/pymath.h",
+		"/C/Miniconda3/include/token.h",
+		"/C/Miniconda3/include/tupleobject.h",
+		"/C/Users/jim_a/Desktop/ing multimedia/Analisis/stft.m",
 		"/C/Users/jim_a/Downloads/Jimmy sin gravedad.txt",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/css/estilos.css",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/entidades.php",
@@ -666,7 +666,6 @@
 		"/C/Users/jim_a/Downloads/entidad.sql",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/filegetcontent.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/filegetcontent",
-		"/C/Users/jim_a/Documents/GitHub/entidaes/Entidades.sublime-workspace",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/conexion.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/ramas.php",
 		"/C/Users/jim_a/Documents/GitHub/entidaes/PHP/ramas - copia.php",
@@ -721,48 +720,17 @@
 		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/perros (4).html",
 		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/js/1.js",
 		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/gatos (4).html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/paseame.html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/registro.html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/8.html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/9.html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/blog.html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/conocenos mejor.html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/conocenos mejor (2).html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/conocenos mejor (3).html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/datos erroneos.html",
-		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/datos validos.html",
-		"/C/Users/jim_a/Desktop/Rumania A estrella/js/Cola.txt",
-		"/C/Users/jim_a/Desktop/Rumania A estrella/js/BusquedasMapa.txt",
-		"/C/xampp/htdocs/Varitas/index.html",
-		"/C/Users/jim_a/Desktop/Varitas/index.html",
-		"/C/Users/jim_a/Desktop/NO SEA SAPO/jquery/jquery-1.11.1.min.js",
-		"/C/Users/jim_a/Desktop/NO SEA SAPO/config.xml",
-		"/C/Users/jim_a/Desktop/NO SEA SAPO/index.html",
-		"/C/Users/jim_a/Desktop/NO SEA SAPO/themes/recetarioTheme.min.css",
-		"/C/Users/jim_a/Desktop/Varitas/Varitas Harry Potter.js",
-		"/C/Users/jim_a/Desktop/NO SEA SAPO/themes/recetarioTheme.css",
-		"/C/Users/jim_a/Desktop/Varitas/Varitas Harry Potter.html",
-		"/C/Users/jim_a/Desktop/ing multimedia/Proyecto semillero/NFC/main/ArduinoLibraries-master/NFC/PN532.h",
-		"/C/xampp/htdocs/Proyectos_Pruebas/DB.php",
-		"/C/xampp/htdocs/Proyectos_Pruebas/insert.php",
-		"/C/xampp/htdocs/Proyectos_Pruebas/Archivos en local/archivos.php",
-		"/C/Users/jim_a/Desktop/d3mmjwi9zSVpra9i.gif",
-		"/C/Users/jim_a/Desktop/d3mmjwi9zSVpra9i.gif.txt",
-		"/C/Users/jim_a/Desktop/Wumpus/wumpus.html",
-		"/C/Users/jim_a/Desktop/ing multimedia 8/IA/Busqueda/IAUMNG-master/js/BusquedasPuzzle.js",
-		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/index.html",
-		"/C/Users/jim_a/Desktop/ProyectoD/Restaurante/www/js/index.css"
+		"/C/Users/jim_a/Desktop/jimmy/Entrega-pagina/paseame.html"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
 		"height": 96.0,
 		"where_history":
 		[
-			""
 		]
 	},
 	"find_state":
@@ -770,134 +738,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"<? ",
-			"<?\t",
-			"<? ",
-			"<?",
-			"<?\t",
-			"btnLikes",
-			"entds",
-			"id?>\"><?=$entas",
-			"update_contentJson",
-			"pintarNodo",
-			"togg",
-			"var root",
-			"root",
-			"armarArbol",
-			"ó",
-			"í",
-			"é",
-			"á",
-			"ó",
-			"\"+\"",
-			"\"",
-			"+",
-			".overl",
-			"overlay",
-			"#4A8C2B, #FFFFFF",
-			"lat",
-			"$lat",
-			"Longitud: ",
-			"Latitud: ",
-			" | ",
-			"^$",
-			"\t",
-			"Longitud: ",
-			"Latitud: ",
-			" | ",
-			"\t",
-			"Agencia colombiana para la Reintegración de Personas y Grupos Alzados En Armas",
-			"\\t",
-			"\\$",
-			"; ",
-			" |",
-			"Longitud: ",
-			"Latitud: ",
-			"ram",
-			"addFiltro",
-			"cargarfiltros",
-			"collapse",
-			"data-hid",
-			"isset",
-			"width",
-			"</select>",
-			"name",
-			"li",
-			"button",
-			"-button",
-			"li",
-			"-button",
-			"selectmenu",
-			"li",
-			"#",
-			"sel_ord",
-			"sel_car",
-			"sel_ram",
-			"#",
-			"();\n",
-			"toggleChildren",
-			"collapse",
-			"tog",
-			"toog",
-			"entidad",
-			"entidades",
-			"\n$",
-			"add",
-			";\n",
-			"trees",
-			"init",
-			"d[i]",
-			"d[i",
-			"d",
-			"entidades",
-			"id=\"",
-			"_ent",
-			"car",
-			"init",
-			"pag",
-			"dia",
-			"entidades",
-			"trig",
-			"2",
-			"zoomTransform",
-			"\");\n",
-			"console",
-			"milis",
-			"center",
-			"cen",
-			"centr",
-			"tree",
-			"tree+",
-			"tree",
-			"center",
-			"y0",
-			"center",
-			"y0",
-			"svgG",
-			"vis.",
-			"vis",
-			"svgGroup",
-			"vis",
-			"vis =",
-			"vis=",
-			"vis",
-			"dia",
-			"diagonal",
-			"limite",
-			"init",
-			";\n",
-			"totalNodes",
-			"link",
-			"centerNode",
-			"expand",
-			"source",
-			"diagonal",
-			"svgGro",
-			"pan",
-			"svgg",
-			"arbol",
-			"zoomListener",
-			"zoom"
+			"<<<<head",
+			"<<head",
+			">>>head",
+			"head"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -905,19 +749,6 @@
 		"regex": false,
 		"replace_history":
 		[
-			"o",
-			"Latitud:  | Longitud: ",
-			";",
-			"",
-			"<a target=\"_blank\" href=\"https://www.linkedin",
-			"<a target=\"_blank\"",
-			"images(2).jpg",
-			"screen",
-			"blog.html",
-			"conocenos mejor.html",
-			"perros.html",
-			"gatos.html",
-			"index.html"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -933,28 +764,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "entidades.php",
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5366,
+						"buffer_size": 38,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3395,
-								3395
+								38,
+								38
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1380.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -962,25 +792,24 @@
 				},
 				{
 					"buffer": 1,
-					"file": "carga_entidades.php",
+					"file": "Administrador entidades/php/server.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3120,
+						"buffer_size": 282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								320,
-								320
+								282,
+								282
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -991,129 +820,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "Administrador entidades/php/car.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 373,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								224,
-								224
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Administrador entidades/php/server.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 284,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								227,
-								227
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 479,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										168,
-										171
-									],
-									[
-										266,
-										269
-									],
-									[
-										420,
-										423
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								176,
-								176
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "entidad.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5731,
+						"buffer_size": 6267,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5383,
-								5383
+								6265,
+								6265
 							]
 						],
 						"settings":
@@ -1122,10 +841,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 567.0,
+						"translation.y": 3300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

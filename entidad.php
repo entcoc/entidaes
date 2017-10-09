@@ -47,22 +47,34 @@ if($s->execute(array($_GET['ent']))){
 				<img src="<?=$entidad->img?>" alt="<?=$entidad->nom?>" class="img_ent">
 				<p class="des_ent"><?=$entidad->des?></p>
 				<h2>Entidades relacionadas</h2>
+<?php if(count($entas)>0){ ?>
 				<div class="info">
 					<h2>Nivel Superior</h2>
 					<ul class="datos-list">
 						<li><a href="?ent=<?=$entas[0]->id?>"><?=$entas[0]->nom?></a></li>
+<?php if(isset($entas[1])){ ?>
 						<li><a href="?ent=<?=$entas[1]->id?>"><?=$entas[1]->nom?></a></li>
+<?php }
+if(isset($entas[2])){ ?>
 						<li><a href="?ent=<?=$entas[2]->id?>"><?=$entas[2]->nom?></a></li>
+<?php } ?>
 					</ul>
 				</div>
+<?php }
+if(count($entds)>0){ ?>
 				<div class="info">
 					<h2>Nivel inferior</h2>
 					<ul class="datos-list">
 						<li><a href="?ent=<?=$entds[0]->id?>"><?=$entds[0]->nom?></a></li>
+<?php if(isset($entds[1])){ ?>
 						<li><a href="?ent=<?=$entds[1]->id?>"><?=$entds[1]->nom?></a></li>
+<?php }
+if(isset($entds[2])){ ?>
 						<li><a href="?ent=<?=$entds[2]->id?>"><?=$entds[2]->nom?></a></li>
+<?php } ?>
 					</ul>
 				</div>
+<?php } ?>
 			</div>
 			<div class="datos-col">
 				<div class="info">
@@ -141,12 +153,23 @@ if($s->execute(array($_GET['ent']))){
 				});
 			}
 			codeAddress();
-		<?php } ?>
+<?php } ?>
 		}
+		$(document).ready(function(e){
+			var vistas=<?=$entidad->vist?>;
+			var id=<?=$entidad->id?>;
+			if(vistas>=0){
+				vistas++;
+				var q='UPDATE entidad SET vist_ent=? WHERE id_ent=?';
+				$.get("Administrador entidades/php/query.php",{q:q,v:""+vistas+","+id},function(d){
+					console.log(d);
+				});
+			}
+		});
 		</script>
 	<!-- <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyAjvryudz2XTVjean_g4BQDdeT0O3J-cuU" type="text/javascript"></script> -->
 	<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjvryudz2XTVjean_g4BQDdeT0O3J-cuU&callback=initMap">
     </script>
 	</body>
-	</html>
+</html>
