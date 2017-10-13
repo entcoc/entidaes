@@ -185,11 +185,12 @@ h1{
 	cursor: pointer;
 	color: white;
 	margin:3px;
-	height:35px;
+	height:45px;
 	position: relative;
 	transition: left 2s;
 	text-align: center;
 	padding: 2px;
+  overflow: hidden;
 }
 .filtros{
 	display: flex;

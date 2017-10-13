@@ -8,6 +8,9 @@
 	<script src="js/jquery.ui.position.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/jquery.contextMenu.min.js"></script>
+	<script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script> 
+	<script type="text/javascript" src="http://canvg.github.io/canvg/StackBlur.js"></script>
+	<script type="text/javascript" src="http://canvg.github.io/canvg/canvg.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="js/variables.js"></script>
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
@@ -108,6 +111,9 @@
 	</form>
 	<div style="background: white;" id="treeShow">
 	</div>
+	<div style="display: none;">
+		<canvas id="canvas"></canvas>
+	</div>
 	</div>
 	<script>
 		//Listado de ramas del poder público
@@ -129,13 +135,21 @@
 	</script>
 	<script src="./js/functions.js"></script>
 	<script>
+<?php if(isset($ram)){ ?>
 		addFiltro(<?=json_encode(explode(",", $ram))?>,"ram");
+<?php }if(isset($car)){ ?>
 		addFiltro(<?=json_encode(explode(",", $car))?>,"car");
+<?php }if(isset($niv)){ ?>
 		addFiltro(<?=json_encode(explode(",", $niv))?>,"niv");
+<?php }if(isset($ord)){ ?>
 		addFiltro(<?=json_encode(explode(",", $ord))?>,"ord");
+<?php }if(isset($subord)){ ?>
 		addFiltro(<?=json_encode(explode(",", $subord))?>,"subord");
+<?php }if(isset($dep)){ ?>
 		addFiltro(<?=json_encode(explode(",", $dep))?>,"dep");
+<?php }if(isset($mun)){ ?>
 		addFiltro(<?=json_encode(explode(",", $mun))?>,"mun");
+<?php } ?>
 	</script>
 </body>
 </html>

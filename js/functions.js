@@ -70,6 +70,8 @@ function armarArbol(){
 			        });
 	w=+$('#treeShow').width();
 	h=+$('#treeShow').height($(document).height()-100).height();
+  $('#canvas').attr('width',w);
+  $('#canvas').attr('height',h);
 	root.x0=h/2;
 	root.y0=0;
 	//Se crea el layout del arbol.
@@ -434,28 +436,33 @@ $(document).ready(function(){
 		}
 	});
   $("#sel_ram").selectmenu({width:200,change:function(event,ui){
-    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro ram">'+ui.item.label+'</div>')
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro ram"><h6>Rama</h6>'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
   $("#sel_car").selectmenu({width:200,change:function(event,ui){
-    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro car">'+ui.item.label+'</div>')
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro car"><h6>Carácter</h6>'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
   $("#sel_ord").selectmenu({width:200,change:function(event,ui){
-    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro ord">'+ui.item.label+'</div>')
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro ord"><h6>Orden</h6>'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
   $("#sel_niv").selectmenu({width:200,change:function(event,ui){
-    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro niv">'+ui.item.label+'</div>')
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro niv"><h6>Nivel</h6>'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
   $("#sel_subord").selectmenu({width:200,change:function(event,ui){
-    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro subord">'+ui.item.label+'</div>')
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro subord"><h6>Suborben</h6>'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
   $("#sel_dep").selectmenu({width:200,change:function(event,ui){
-    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro dep">'+ui.item.label+'</div>')
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro dep"><h6>Departamento</h6>'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
   $("#sel_mun").selectmenu({width:200,change:function(event,ui){
-    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro mun">'+ui.item.label+'</div>')
+    $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ui.item.value+'" class="filtro mun"><h6>Municipio</h6>'+ui.item.label+'</div>')
   }}).selectmenu("menuWidget").addClass("overflow");
   $('#descargar').click(function(e){
     var svg=$('#treeShow svg');
+    var type=+prompt('Por favor escriba el número correspondiente al tipo de imagen que desea descargar:\n1 = jpg\n2 = png\n3 = svg','1');
+    if(type==1 || type==2){
+      var rect=$('<rect width="'+w+'" height="'+h+'" style="fill:white;"/>');
+      svg.prepend(rect);
+    }
     svg.attr({title:"svg_title",xmlns:"http://www.w3.org/2000/svg","xmlns:svg":"http://www.w3.org/2000/svg"});
     svg.prepend("<defs><style>.ruta{fill:none;stroke: black;stroke-width: 0.5px;}.entidad{cursor: pointer;}.entidad text{font-family: 'Roboto', sans-serif;font-size: 25px;}.entidad.prof0 circle{fill: #0a2342;}.entidad.prof1 circle{fill: #f46197;}.entidad.prof2 circle{fill: #FF8C00;}.entidad.prof3 circle{fill: #2CA58D;}.entidad.prof4 circle{fill: #36558F;}.entidad.prof5 circle{fill: #D4E4BC;}.entidad.prof6 circle{fill: #48233C;}.entidad.prof7 circle{fill: #D4E4BC;}");
     var text=$('#treeShow').html();
@@ -469,11 +476,39 @@ $(document).ready(function(){
     svg.find("defs").eq(0).remove();
     text=div.html();
     text=text.replace(/&amp;/g,"&");
-    text=btoa(text);
-    $(e.target).attr({"href-lang":"image/svg+xml","href":"data:image/svg+xml;base64,\n"+text});
-    if(!confirm("Quieres descargar")){
+    
+    var canvas = document.getElementById("canvas");
+    var divCanv=$(canvas).parent().css('display','block');
+    var canvText=text.substring(2);
+    canvg('canvas', canvText);
+    switch(type){
+      case 1:
+        var png = canvas.toDataURL("image/jpeg");
+        $(e.target).attr('download','Vista.jpg');
+        $(e.target).attr({"href-lang":"image/jpeg","href":png});
+      break;
+      case 2:
+        var png = canvas.toDataURL("image/png");
+        $(e.target).attr('download','Vista.png');
+        $(e.target).attr({"href-lang":"image/png","href":png});
+      break;
+      case 2:
+        text=btoa(text);
+        $(e.target).attr('download','Vista.svg');
+        $(e.target).attr({"href-lang":"image/svg+xml","href":"data:image/svg+xml;base64,\n"+text});
+      break;
+      default:
+      alert('Ha cancelado la descarga')
       e.preventDefault();
+      break;
     }
+    if(type==1||type==2){
+      rect.remove();
+    }
+    var divCanv=$(canvas).parent().css('display','none');
+    // if(!confirm("Quieres descargar")){
+    //   e.preventDefault();
+    // }
   });
   $('#expandir').click(function(){
     expand(root);
@@ -555,7 +590,31 @@ function eliminar(e){
 function addFiltro(ids,eclass){
   if(ids[0]!=""){
     for (var i = ids.length - 1; i >= 0; i--) {
-      $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ids[i]+'" class="filtro '+eclass+'">'+$("#sel_"+eclass+" option[value="+ids[i]+"]").text()+'</div>');
+      var title="";
+      switch(eclass){
+        case 'ram':
+        title='Rama';
+        break;
+        case 'car':
+        title='Carácter';
+        break;
+        case 'ord':
+        title='Orden';
+        break;
+        case 'subord':
+        title='Suborden';
+        break;
+        case 'niv':
+        title='Nivel';
+        break;
+        case 'mun':
+        title='Municipio';
+        break;
+        case 'dep':
+        title='Departamento';
+        break;
+      }
+      $('.filtros').append('<div onclick="eliminar(event.target)" data-id="'+ids[i]+'" class="filtro '+eclass+'"><h6>'+title+'</h6>'+$("#sel_"+eclass+" option[value="+ids[i]+"]").text()+'</div>');
     }
   }
 }
