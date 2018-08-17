@@ -8,9 +8,12 @@
 	<script src="js/jquery.ui.position.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/jquery.contextMenu.min.js"></script>
-	<script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script> 
-	<script type="text/javascript" src="http://canvg.github.io/canvg/StackBlur.js"></script>
-	<script type="text/javascript" src="http://canvg.github.io/canvg/canvg.js"></script>
+	<!-- Required to convert named colors to RGB -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvg/1.4/rgbcolor.min.js"></script>
+	<!-- Optional if you want blur -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stackblur-canvas/1.4.1/stackblur.min.js"></script>
+	<!-- Main canvg code -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/canvg/dist/browser/canvg.min.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="js/variables.js"></script>
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
